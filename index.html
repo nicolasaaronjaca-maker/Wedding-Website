@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       background: url('Background.jpg') no-repeat center center fixed;
-      background-size: cover; /* Revised: Fills the screen on desktop, may crop edges */
+      background-size: 100% 100%; /* Stretches the image to fill the screen */
       color: white;
       text-align: center;
     }
@@ -152,10 +152,11 @@
     }
     /* Media query to stack elements and resize fonts on smaller screens */
     @media (max-width: 768px) {
+        /*
+          The background is already stretched by `background-size: 100% 100%;`
+          in the main body selector, so no mobile-specific background changes are needed here.
+        */
         body {
-            background-size: contain; /* Revised: "Zooms out" the image to fit on phones */
-            background-repeat: no-repeat;
-            background-position: center top;
             background-attachment: scroll;
         }
         /* Make fonts smaller for phones */
