@@ -37,9 +37,9 @@
     }
     section {
       padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.3); /* Revised: Changed background opacity to 0.3 */
+      background: rgba(0, 0, 0, 0.3);
       margin: 20px auto;
-      max-width: 500px;
+      max-width: 1000px;
       border-radius: 10px;
     }
     #calendar {
@@ -152,6 +152,10 @@
     }
     /* Media query to stack elements and resize fonts on smaller screens */
     @media (max-width: 768px) {
+        body {
+            background-attachment: scroll;
+            background-size: auto 100%; /* Revised: New mobile background size */
+        }
         /* Make fonts smaller for phones */
         h1 {
             font-size: 2.5rem;
@@ -166,9 +170,6 @@
         }
         .video-box {
             max-width: 100%;
-        }
-        body {
-            background-attachment: scroll;
         }
     }
   </style>
@@ -290,4 +291,3 @@
 
 </body>
 </html>
-
