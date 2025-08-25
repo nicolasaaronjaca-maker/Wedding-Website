@@ -9,8 +9,8 @@
       font-family: 'Georgia', serif;
       margin: 0;
       padding: 0;
-      background: url('Background 3.jpg') no-repeat center center fixed;
-      background-size: 50% 50%; /* Stretches the image to fill the screen */
+      background: url('Background.jpg') no-repeat center center fixed;
+      background-size: cover; /* Revised: Normalizes image to prevent stretching, may crop edges */
       color: white;
       text-align: center;
     }
@@ -152,10 +152,6 @@
     }
     /* Media query to stack elements and resize fonts on smaller screens */
     @media (max-width: 768px) {
-        /*
-          The background is already stretched by `background-size: 100% 100%;`
-          in the main body selector, so no mobile-specific background changes are needed here.
-        */
         body {
             background-attachment: scroll;
         }
@@ -294,5 +290,3 @@
 
 </body>
 </html>
-
-
