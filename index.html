@@ -9,8 +9,7 @@
       font-family: 'Georgia', serif;
       margin: 0;
       padding: 0;
-      background: url('Background.jpg') no-repeat center center fixed;
-      background-size: cover; /* Revised: Normalizes image to prevent stretching, may crop edges */
+      background-color: #333; /* A base background color */
       color: white;
       text-align: center;
     }
@@ -37,11 +36,17 @@
     }
     section {
       padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.3);
       margin: 20px auto;
       max-width: 1000px;
       border-radius: 10px;
+      /* Default section background is removed */
     }
+    /* Updated: All sections use the same background image */
+    #event, #location, #moodboard, #rsvp, #savethedate {
+      background: url('Background.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    
     #calendar {
       display: flex;
       justify-content: center;
@@ -183,6 +188,9 @@
       <a href="#rsvp">RSVP</a>
       <a href="#savethedate">Save the Date</a>
       <a href="#location">Location</a>
+      <a href="#registry">Registry</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
     </nav>
   </header>
 
@@ -287,4 +295,3 @@
 
 </body>
 </html>
-
