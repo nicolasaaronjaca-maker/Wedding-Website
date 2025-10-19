@@ -11,16 +11,34 @@
       padding: 0;
       color: white;
       text-align: center;
+      background-color: #333; /* Fallback color */
       
-      /* CRITICAL CHANGE: Background is now on the body for a single, fixed effect */
-      background: url('Background.jpg') no-repeat center center; 
-      background-size: cover;
-      background-attachment: fixed; /* FIXED for parallax effect */
+      /* New: Position body relative to anchor the pseudo-element */
+      position: relative; 
     }
+
+    /* CRITICAL FIX: The Pseudo-element for Fixed Background */
+    body::before {
+      content: '';
+      position: fixed; /* Stays fixed in the viewport */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('Background.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -1; /* Puts the background behind all content */
+    }
+
+    /* All content must be above the background */
+    header, section {
+        position: relative;
+        z-index: 1; 
+    }
+
     header {
       background: rgba(0, 0, 0, 0.5);
       padding: 20px;
-      /* Ensures header content is readable */
     }
     nav {
       margin: 15px 0;
@@ -47,10 +65,7 @@
       margin-bottom: 20px; /* Spacing between sections */
     }
     
-    /* REMOVED: Individual section backgrounds are gone */
-    /* #event, #location, #moodboard, #rsvp, #savethedate are no longer styled with backgrounds */
-
-    /* Content Wrapper: Adds dark overlay for text readability over the body background */
+    /* Content Wrapper: Adds dark overlay for text readability */
     .content-wrapper {
         background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
         padding: 40px 20px; 
@@ -170,19 +185,12 @@
     }
     /* Media query for mobile */
     @media (max-width: 768px) {
-        /* On mobile, background-attachment: fixed is applied to the body, 
-           which is the best attempt at a fixed background across all sections. 
-           (Note: Some mobile browsers still force this to scroll for performance.) */
-
-        /* Make fonts smaller for phones */
         h1 {
             font-size: 2.5rem;
         }
         .tagline {
             font-size: 1.1rem;
         }
-        
-        /* Adjusted padding for mobile content */
         .content-wrapper {
             padding: 30px 15px;
         }
