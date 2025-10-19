@@ -239,10 +239,21 @@
             max-width: 100%; /* Stack entourage images on small screens */
         }
         
-        /* Smaller font size for nav links on mobile (the key change) */
+        /* FIX: Ensure the nav container allows all items on one line */
+        nav {
+            margin: 10px 0; /* Reduced vertical margin */
+            /* Force content into a single line */
+            white-space: nowrap; 
+            overflow-x: auto; /* Allows horizontal scrolling if absolutely necessary */
+            -webkit-overflow-scrolling: touch; /* Improved scrolling on iOS */
+        }
+        
+        /* FIX: Extremely small spacing to keep all links together */
         nav a {
-            font-size: 0.75rem; 
-            margin: 0 8px; 
+            font-size: 0.7rem; /* Even smaller font size */
+            margin: 0 3px; /* Minimal margin between links */
+            padding: 5px 2px; /* Add small padding for easier tapping */
+            display: inline-block;
         }
     }
   </style>
@@ -258,6 +269,9 @@
       <a href="#savethedate">Save the Date</a>
       <a href="#entourage">Entourage</a>
       <a href="#location">Location</a>
+      <a href="#registry">Registry</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
     </nav>
   </header>
 
@@ -298,7 +312,7 @@
         <div class="divider"></div>
         <div class="moodboard-container">
           <div class="moodboard-item">
-            <img src="Mood Board Finaal.png" alt="Mood Board"> 
+            <img src="Mood Board.png" alt="Mood Board"> 
           </div>
         </div>
     </div>
