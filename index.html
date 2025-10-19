@@ -24,7 +24,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      /* Corrected file name: Background.jpg (Confirmed correct) */
       background: url('Background.jpg') no-repeat center center;
       background-size: cover;
       z-index: -1; /* Puts the background behind all content */
@@ -240,10 +239,10 @@
             max-width: 100%; /* Stack entourage images on small screens */
         }
         
-        /* Smaller font size for nav links on mobile */
+        /* Smaller font size for nav links on mobile (the key change) */
         nav a {
-            font-size: 0.75rem; /* Reduced font size */
-            margin: 0 8px; /* Reduced margin */
+            font-size: 0.75rem; 
+            margin: 0 8px; 
         }
     }
   </style>
@@ -265,4 +264,121 @@
   <section id="event">
     <div class="content-wrapper">
         <h2>Event Details</h2>
-        <div id="countdown">
+        <div id="countdown"></div>
+        <div id="calendar">
+          <img src="April 2026.jpg" alt="Wedding Week Calendar">
+        </div>
+    </div>
+  </section>
+
+  <section id="location">
+    <div class="content-wrapper">
+        <h2>Location</h2>
+        <div class="divider"></div>
+        <div class="location-container">
+          <div class="location-card">
+            <img src="church.jpg" alt="Church">
+            <h3>Our Lady of Lourdes Parish</h3>
+            <p>Our wedding ceremony will be held at the church.</p>
+            <a class="guide-btn" href="https://www.google.com/maps/place/Our+Lady+of+Lourdes+Parish+Church+-+Silang+Junction+North,+Tagaytay+City,+Cavite+(Diocese+of+Imus)/@14.1112325,120.9548224,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd7764459f8ce3:0xe729ecd446058e72!8m2!3d14.1112325!4d120.9573973!16s%2Fg%2F1v41xzyh?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
+          </div>
+          <div class="location-card">
+            <img src="reception.jpg" alt="Reception">
+            <h3>Fruella's Events Venue</h3>
+            <p>Join us for the celebration at the reception venue.</p>
+            <a class="guide-btn" href="https://www.google.com/maps/place/Fruella's+Events+Venue+Tagaytay/@14.1328031,120.9266371,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd796d1fd7f119:0x5fccd52277bc6f1!8m2!3d14.1327979!4d120.931508!16s%2Fg%2F11v0gyk507?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="moodboard">
+    <div class="content-wrapper">
+        <h2>Mood Board & Color Motifs</h2>
+        <div class="divider"></div>
+        <div class="moodboard-container">
+          <div class="moodboard-item">
+            <img src="Mood Board Finaal.png" alt="Mood Board"> 
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="content-wrapper">
+        <h2>RSVP</h2>
+        <div class="divider"></div>
+        <p class="rsvp-message">
+          We would be honored by your presence on our wedding day.<br>
+          Kindly confirm your attendance by clicking the button below:
+        </p>
+        <p class="rsvp-instruction">
+          ✦ Please make sure to enter your <strong>Full Name</strong> in the format <em>FirstName LastName (FN LN)</em> when submitting your RSVP.
+        </p>
+        <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
+    </div>
+  </section>
+  
+  <section id="savethedate">
+    <div class="content-wrapper">
+        <h2>Save the Date</h2>
+        <div class="divider"></div>
+        <div class="single-box-container">
+            <div class="single-content-box">
+                <video controls autoplay muted loop>
+                    <source src="savethedate.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-caption">A glimpse of our journey — we can’t wait to celebrate with you!</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="entourage">
+    <div class="content-wrapper">
+        <h2>Our Entourage</h2>
+        <div class="divider"></div>
+        <div class="single-box-container">
+            
+            <div class="single-content-box">
+                <img src="Entourage List 1.png" alt="Our Entourage List - Part 1">
+            </div>
+            
+            <div class="single-content-box">
+                <img src="Entourage List 2.png" alt="Our Entourage List - Part 2">
+            </div>
+        </div>
+        <p class="video-caption" style="margin-top: 20px;">Meet our cherished entourage — the people who’ll stand beside us.</p>
+    </div>
+  </section>
+
+  <script>
+    // Countdown Script
+    const countdown = document.getElementById("countdown");
+    const weddingDate = new Date("April 16, 2026 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        countdown.innerHTML = "It's our wedding day!";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
