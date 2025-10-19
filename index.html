@@ -159,6 +159,10 @@
     .single-box-container {
         display: flex;
         justify-content: center; /* Center the box */
+        /* Change from flex-row to flex-column if you want the two boxes in Entourage to stack */
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px; /* Space between the two entourage boxes */
     }
     .single-content-box {
       width: 100%;
@@ -314,8 +318,13 @@
         <h2>Our Entourage</h2>
         <div class="divider"></div>
         <div class="single-box-container">
+            
             <div class="single-content-box">
-                <img src="entourage-list.jpg" alt="Our Entourage">
+                <img src="Entourage list 1.png" alt="Our Entourage List - Part 1">
+            </div>
+            
+            <div class="single-content-box">
+                <img src="Entourage list 2.png" alt="Our Entourage List - Part 2">
                 <p class="video-caption">Meet our cherished entourage — the people who’ll stand beside us.</p>
             </div>
         </div>
