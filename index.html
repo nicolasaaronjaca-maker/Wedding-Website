@@ -41,13 +41,13 @@
       border-radius: 10px;
     }
     
-    /* All sections use the same background image */
+    /* Desktop and Tablet Styles (Default) */
     #event, #location, #moodboard, #rsvp, #savethedate {
-      background: url('Background.jpg') no-repeat center center fixed;
+      background: url('Background.jpg') no-repeat center center fixed; /* Fixed for parallax effect on desktop */
       background-size: cover;
     }
 
-    /* FIX: Content Wrapper for readability */
+    /* Content Wrapper for readability */
     .content-wrapper {
         background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
         padding: 40px 20px; /* Restored content padding */
@@ -165,9 +165,11 @@
     }
     /* Media query to stack elements and resize fonts on smaller screens */
     @media (max-width: 768px) {
-        body {
+        /* FIX: Switches from fixed to scroll for stable mobile viewing */
+        #event, #location, #moodboard, #rsvp, #savethedate {
             background-attachment: scroll;
         }
+
         /* Make fonts smaller for phones */
         h1 {
             font-size: 2.5rem;
