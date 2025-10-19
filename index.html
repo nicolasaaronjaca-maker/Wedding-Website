@@ -35,24 +35,28 @@
       font-style: italic;
     }
     section {
-      padding: 20px; /* Reduced outer padding */
-      margin: 20px auto;
-      max-width: 1000px;
-      border-radius: 10px;
+      /* Removed margin and max-width from section to allow the background image to fill the browser width */
+      margin: 0; 
+      padding: 0; /* Removing padding from section to control spacing with the wrapper */
     }
     
-    /* Desktop and Tablet Styles (Default) */
+    /* NEW: Setting the Background.jpg on each individual section */
     #event, #location, #moodboard, #rsvp, #savethedate {
-      background: url('Background.jpg') no-repeat center center fixed; /* Fixed for parallax effect on desktop */
+      /* Background covers the full width/height of the section */
+      background: url('Background.jpg') no-repeat center center; 
       background-size: cover;
+      /* Adds spacing between sections */
+      margin-bottom: 20px; 
     }
 
-    /* Content Wrapper for readability */
+    /* FIX: Content Wrapper for readability and structure */
     .content-wrapper {
         background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
-        padding: 40px 20px; /* Restored content padding */
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        padding: 40px 20px; 
+        border-radius: 0; /* Remove rounded corners to fill section background */
+        box-shadow: none; /* Removed box shadow */
+        max-width: 1000px; /* Constrain content width */
+        margin: 0 auto; /* Center the content wrapper */
     }
     
     #calendar {
@@ -165,9 +169,11 @@
     }
     /* Media query to stack elements and resize fonts on smaller screens */
     @media (max-width: 768px) {
-        /* FIX: Switches from fixed to scroll for stable mobile viewing */
+        /* Removes fixed background on mobile for better performance */
         #event, #location, #moodboard, #rsvp, #savethedate {
             background-attachment: scroll;
+            /* To ensure content wrapper stretches */
+            padding: 0; 
         }
 
         /* Make fonts smaller for phones */
@@ -177,11 +183,7 @@
         .tagline {
             font-size: 1.1rem;
         }
-        /* Make content sections smaller */
-        section {
-            padding: 15px 15px;
-            margin: 15px auto;
-        }
+        /* Adjusted padding for mobile */
         .content-wrapper {
             padding: 30px 15px;
         }
