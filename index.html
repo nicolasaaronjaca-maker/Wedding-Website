@@ -35,16 +35,24 @@
       font-style: italic;
     }
     section {
-      padding: 40px 20px;
+      padding: 20px; /* Reduced outer padding */
       margin: 20px auto;
       max-width: 1000px;
       border-radius: 10px;
-      /* Default section background is removed */
     }
-    /* Updated: All sections use the same background image */
+    
+    /* All sections use the same background image */
     #event, #location, #moodboard, #rsvp, #savethedate {
       background: url('Background.jpg') no-repeat center center fixed;
       background-size: cover;
+    }
+
+    /* FIX: Content Wrapper for readability */
+    .content-wrapper {
+        background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+        padding: 40px 20px; /* Restored content padding */
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     }
     
     #calendar {
@@ -169,8 +177,11 @@
         }
         /* Make content sections smaller */
         section {
-            padding: 30px 15px;
+            padding: 15px 15px;
             margin: 15px auto;
+        }
+        .content-wrapper {
+            padding: 30px 15px;
         }
         .video-box {
             max-width: 100%;
@@ -195,74 +206,84 @@
   </header>
 
   <section id="event">
-    <div id="countdown"></div>
-    <div id="calendar">
-      <img src="April 2026.jpg" alt="Wedding Week Calendar">
+    <div class="content-wrapper">
+        <div id="countdown"></div>
+        <div id="calendar">
+          <img src="April 2026.jpg" alt="Wedding Week Calendar">
+        </div>
     </div>
   </section>
 
   <section id="location">
-    <h2>Location</h2>
-    <div class="divider"></div>
-    <div class="location-container">
-      <div class="location-card">
-        <img src="church.jpg" alt="Church">
-        <h3>Our Lady of Lourdes Parish</h3>
-        <p>Our wedding ceremony will be held at the church.</p>
-        <a class="guide-btn" href="https://www.google.com/maps/place/Our+Lady+of+Lourdes+Parish+Church+-+Silang+Junction+North,+Tagaytay+City,+Cavite+(Diocese+of+Imus)/@14.1112325,120.9548224,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd7764459f8ce3:0xe729ecd446058e72!8m2!3d14.1112325!4d120.9573973!16s%2Fg%2F1v41xzyh?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
-      </div>
-      <div class="location-card">
-        <img src="reception.jpg" alt="Reception">
-        <h3>Fruella's Events Venue</h3>
-        <p>Join us for the celebration at the reception venue.</p>
-        <a class="guide-btn" href="https://www.google.com/maps/place/Fruella's+Events+Venue+Tagaytay/@14.1328031,120.9266371,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd796d1fd7f119:0x5fccd52277bc6f1!8m2!3d14.1327979!4d120.931508!16s%2Fg%2F11v0gyk507?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
-      </div>
+    <div class="content-wrapper">
+        <h2>Location</h2>
+        <div class="divider"></div>
+        <div class="location-container">
+          <div class="location-card">
+            <img src="church.jpg" alt="Church">
+            <h3>Our Lady of Lourdes Parish</h3>
+            <p>Our wedding ceremony will be held at the church.</p>
+            <a class="guide-btn" href="https://www.google.com/maps/place/Our+Lady+of+Lourdes+Parish+Church+-+Silang+Junction+North,+Tagaytay+City,+Cavite+(Diocese+of+Imus)/@14.1112325,120.9548224,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd7764459f8ce3:0xe729ecd446058e72!8m2!3d14.1112325!4d120.9573973!16s%2Fg%2F1v41xzyh?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
+          </div>
+          <div class="location-card">
+            <img src="reception.jpg" alt="Reception">
+            <h3>Fruella's Events Venue</h3>
+            <p>Join us for the celebration at the reception venue.</p>
+            <a class="guide-btn" href="https://www.google.com/maps/place/Fruella's+Events+Venue+Tagaytay/@14.1328031,120.9266371,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd796d1fd7f119:0x5fccd52277bc6f1!8m2!3d14.1327979!4d120.931508!16s%2Fg%2F11v0gyk507?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
+          </div>
+        </div>
     </div>
   </section>
 
   <section id="moodboard">
-    <h2>Mood Board & Color Motifs</h2>
-    <div class="divider"></div>
-    <div class="moodboard-container">
-      <div class="moodboard-item">
-        <img src="Mood Board.png" alt="Mood Board">
-        <p>Mood Board</p>
-      </div>
-      <div class="moodboard-item">
-        <img src="Color Motif.png" alt="Color Palette">
-        <p>Color Palette</p>
-      </div>
+    <div class="content-wrapper">
+        <h2>Mood Board & Color Motifs</h2>
+        <div class="divider"></div>
+        <div class="moodboard-container">
+          <div class="moodboard-item">
+            <img src="Mood Board.png" alt="Mood Board">
+            <p>Mood Board</p>
+          </div>
+          <div class="moodboard-item">
+            <img src="Color Motif.png" alt="Color Palette">
+            <p>Color Palette</p>
+          </div>
+        </div>
     </div>
   </section>
 
   <section id="rsvp">
-    <h2>RSVP</h2>
-    <div class="divider"></div>
-    <p class="rsvp-message">
-      We would be honored by your presence on our wedding day.<br>
-      Kindly confirm your attendance by clicking the button below:
-    </p>
-    <p class="rsvp-instruction">
-      ✦ Please make sure to enter your <strong>Full Name</strong> in the format <em>FirstName LastName (FN LN)</em> when submitting your RSVP.
-    </p>
-    <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
+    <div class="content-wrapper">
+        <h2>RSVP</h2>
+        <div class="divider"></div>
+        <p class="rsvp-message">
+          We would be honored by your presence on our wedding day.<br>
+          Kindly confirm your attendance by clicking the button below:
+        </p>
+        <p class="rsvp-instruction">
+          ✦ Please make sure to enter your <strong>Full Name</strong> in the format <em>FirstName LastName (FN LN)</em> when submitting your RSVP.
+        </p>
+        <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
+    </div>
   </section>
 
   <section id="savethedate">
-    <h2>Save the Date & Entourage</h2>
-    <div class="divider"></div>
-    <div class="video-container">
-      <div class="video-box">
-        <video controls autoplay muted loop>
-          <source src="savethedate.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="video-caption">A glimpse of our journey — we can’t wait to celebrate with you!</p>
-      </div>
-      <div class="video-box">
-        <img src="entourage-list.jpg" alt="Our Entourage">
-        <p class="video-caption">Meet our cherished entourage — the people who’ll stand beside us.</p>
-      </div>
+    <div class="content-wrapper">
+        <h2>Save the Date & Entourage</h2>
+        <div class="divider"></div>
+        <div class="video-container">
+          <div class="video-box">
+            <video controls autoplay muted loop>
+              <source src="savethedate.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p class="video-caption">A glimpse of our journey — we can’t wait to celebrate with you!</p>
+          </div>
+          <div class="video-box">
+            <img src="entourage-list.jpg" alt="Our Entourage">
+            <p class="video-caption">Meet our cherished entourage — the people who’ll stand beside us.</p>
+          </div>
+        </div>
     </div>
   </section>
 
