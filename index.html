@@ -155,18 +155,37 @@
       background: #e6c799;
     }
     
-    /* Single Content Box Styling (for video and entourage) */
-    .single-box-container {
+    /* --- Specific Styling for Entourage Section --- */
+    /* Container for the two entourage images to be side-by-side */
+    #entourage .single-box-container {
         display: flex;
-        /* Set to column to stack the two entourage images */
-        flex-direction: column; 
-        align-items: center;
+        flex-direction: row; /* Arranges children horizontally */
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        justify-content: center; /* Centers the boxes horizontally */
         gap: 20px; /* Space between the two entourage boxes */
+        align-items: flex-start; /* Aligns items to the top if they have different heights */
     }
+
+    #entourage .single-content-box {
+      width: 100%;
+      max-width: 48%; /* Each box takes up almost half the width to fit side-by-side */
+      flex: 1 1 auto; /* Allows boxes to grow/shrink based on content and available space */
+    }
+    /* --- End Entourage Specific Styling --- */
+
+
+    /* General Single Content Box Styling (for video, now separate from entourage) */
     .single-content-box {
       width: 100%;
       max-width: 500px; /* Restrict width for better viewing */
     }
+    #savethedate .single-box-container { /* Specific for save the date to avoid affecting entourage */
+        display: flex;
+        justify-content: center;
+        flex-direction: column; /* Keep video centered and stacked if needed */
+        align-items: center;
+    }
+
     .single-content-box video, 
     .single-content-box img {
       width: 100%;
@@ -216,7 +235,10 @@
             padding: 30px 15px;
         }
         .single-content-box {
-            max-width: 100%;
+            max-width: 100%; /* Full width on mobile */
+        }
+        #entourage .single-content-box {
+            max-width: 100%; /* Stack entourage images on small screens */
         }
     }
   </style>
@@ -324,9 +346,9 @@
             
             <div class="single-content-box">
                 <img src="Entourage list 2.png" alt="Our Entourage List - Part 2">
-                <p class="video-caption">Meet our cherished entourage — the people who’ll stand beside us.</p>
             </div>
         </div>
+        <p class="video-caption" style="margin-top: 20px;">Meet our cherished entourage — the people who’ll stand beside us.</p>
     </div>
   </section>
 
