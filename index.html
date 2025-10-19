@@ -13,8 +13,7 @@
       text-align: center;
       background-color: #333; /* Fallback color */
       
-      /* New: Position body relative to anchor the pseudo-element */
-      position: relative; 
+      position: relative; /* New: Position body relative to anchor the pseudo-element */
     }
 
     /* CRITICAL FIX: The Pseudo-element for Fixed Background */
@@ -183,6 +182,37 @@
       max-width: 100%;
       height: auto;
     }
+
+    /* Mood Board Specific Styling (No dark overlay) */
+    #moodboard h2 {
+      padding-top: 40px; /* Maintain top padding for the heading */
+    }
+    #moodboard .divider {
+      margin-top: 15px; /* Adjust divider margin */
+      margin-bottom: 25px;
+    }
+    .moodboard-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-bottom: 40px; /* Maintain bottom padding for the section */
+      /* NEW: Added display flex to ensure images are side by side and responsive */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px; /* Space between moodboard items */
+    }
+    .moodboard-item {
+        flex: 1 1 45%; /* Allows items to take up half width, wrapping on smaller screens */
+        max-width: 480px; /* Max width for each moodboard item */
+        margin-bottom: 0; /* No extra margin for items themselves */
+        padding: 10px; /* Slight padding if needed, or remove */
+    }
+    /* Adjusted to avoid an extra paragraph for "Mood Board" as the image has text */
+    .moodboard-item p { 
+        display: none; 
+    }
+
+
     /* Media query for mobile */
     @media (max-width: 768px) {
         h1 {
@@ -195,6 +225,18 @@
             padding: 30px 15px;
         }
         .video-box {
+            max-width: 100%;
+        }
+        /* Moodboard specific mobile adjustments */
+        #moodboard h2 {
+            padding-top: 30px; /* Smaller top padding on mobile */
+        }
+        .moodboard-container {
+            padding-bottom: 30px; /* Smaller bottom padding on mobile */
+            gap: 15px;
+        }
+        .moodboard-item {
+            flex: 1 1 100%; /* Stack moodboard items on small screens */
             max-width: 100%;
         }
     }
@@ -244,13 +286,11 @@
   </section>
 
   <section id="moodboard">
-    <div class="content-wrapper">
-        <h2>Mood Board & Color Motifs</h2>
-        <div class="divider"></div>
-        <div class="moodboard-container">
-          <div class="moodboard-item">
-            <img src="Mood Board Finaal.png" alt="Mood Board">
-          </div>
+    <h2>Mood Board & Color Motifs</h2>
+    <div class="divider"></div>
+    <div class="moodboard-container">
+      <div class="moodboard-item">
+        <img src="Mood Board Finaal.png" alt="Mood Board">
         </div>
     </div>
   </section>
@@ -319,7 +359,3 @@
 
 </body>
 </html>
-
-
-
-
