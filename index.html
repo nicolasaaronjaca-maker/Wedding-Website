@@ -244,3 +244,70 @@
       <p>Mood Board</p>
     </div>
     <div class="moodboard-item">
+      <img src="Color Motif.png" alt="Color Palette">
+      <p>Color Palette</p>
+    </div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <h2>RSVP</h2>
+  <div class="divider"></div>
+  <p class="rsvp-message">
+    We would be honored by your presence on our wedding day.<br>
+    Kindly confirm your attendance by clicking the button below:
+  </p>
+  <p class="rsvp-instruction">
+    ✦ Please make sure to enter your <strong>Full Name</strong> in the format
+    <em>FirstName LastName (FN LN)</em> when submitting your RSVP.
+  </p>
+  <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
+</section>
+
+<section id="savethedate">
+  <h2>Save the Date & Entourage</h2>
+  <div class="divider"></div>
+  <div class="video-container">
+    <div class="video-box">
+      <video controls autoplay muted loop>
+        <source src="savethedate.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-caption">A glimpse of our journey — we can’t wait to celebrate with you!</p>
+    </div>
+    <div class="video-box">
+      <img src="entourage-list.jpg" alt="Our Entourage">
+      <p class="video-caption">Meet our cherished entourage — the people who’ll stand beside us.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // ✅ Fixed Countdown Script
+  const countdown = document.getElementById("countdown");
+  const weddingDate = new Date("April 16, 2026 00:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance <= 0) {
+      countdown.innerHTML = "It's our wedding day!";
+      clearInterval(interval);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  const interval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+</body>
+</html>
