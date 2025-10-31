@@ -54,6 +54,9 @@
         font-size: 1.2rem;
         font-weight: bold;
         cursor: pointer;
+        /* FIX FOR CLICKS: Add position and increase z-index */
+        position: relative; 
+        z-index: 10000; 
         transition: background 0.3s;
     }
 
@@ -373,7 +376,7 @@
 </head>
 <body>
   
-  <audio id="background-music" loop controls>
+  <audio id="background-music" loop controls preload="auto">
     <source src="song.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
@@ -531,7 +534,8 @@
                 music.style.visibility = 'visible';
                 
             }).catch(error => {
-                // If it fails for any reason, show controls so user can press play manually
+                // If it fails for any reason (common on some iOS versions), show controls 
+                // so user can press play manually and hide the welcome screen
                 console.log("Music play attempt failed, showing controls for manual play.", error);
                 music.style.visibility = 'visible';
             }).finally(() => {
