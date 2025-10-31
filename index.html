@@ -35,20 +35,28 @@
         z-index: 1; 
     }
 
+    /* HERO HEADER: Captures the 1st Page (100vh) */
     header {
       background: rgba(0, 0, 0, 0.5);
-      padding: 20px;
+      padding: 20px 20px 40px; 
+      /* New styles for 1st page capture */
+      min-height: 100vh; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Centers content vertically */
+      align-items: center;
     }
     
-    /* NEW STYLE for Monogram Image (ENLARGED) */
+    /* Monogram Image (ENLARGED & FOCUSED) */
     .monogram {
-        height: 250px; /* ENLARGED: Increased size for desktop view */
+        height: 350px; 
         width: auto;
-        margin-bottom: 10px;
+        margin: 50px 0 20px 0; 
+        transition: height 0.3s; 
     }
 
     nav {
-      margin: 15px 0;
+      margin: 20px 0 0; 
     }
     nav a {
       color: white;
@@ -63,6 +71,7 @@
     .tagline {
       font-size: 1.5rem;
       font-style: italic;
+      margin-bottom: 20px; 
     }
     
     /* SECTION CONTAINER: Used only for spacing and structure */
@@ -74,17 +83,17 @@
     
     /* Content Wrapper: Adds dark overlay for text readability */
     .content-wrapper {
-        background: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+        background: rgba(0, 0, 0, 0.6); 
         padding: 40px 20px; 
         border-radius: 0;
         box-shadow: none;
-        max-width: 1000px; /* This limits the actual content width */
-        margin: 0 auto; /* Centers the content wrapper */
+        max-width: 1000px; 
+        margin: 0 auto; 
     }
     
     /* NEW STYLE: Significantly increased countdown size */
     #countdown {
-      font-size: 4rem; /* Enlarged countdown font size */
+      font-size: 4rem; 
       font-weight: bold;
       margin-bottom: 20px;
       margin-top: 20px;
@@ -223,19 +232,23 @@
 
     /* Media query for mobile */
     @media (max-width: 768px) {
+        /* Reduce header padding/height for smaller screens */
+        header {
+            min-height: 85vh; 
+            padding: 20px 15px 30px; 
+        }
+
         /* Adjusted Monogram size for mobile */
         .monogram {
-            height: 120px; /* Adjusted mobile size */
+            height: 180px; 
+            margin-top: 20px;
         }
 
         /* Adjusted Countdown size for mobile */
         #countdown {
-            font-size: 3rem; 
+            font-size: 2.5rem; 
         }
 
-        h1 {
-            font-size: 2.5rem;
-        }
         .tagline {
             font-size: 1.1rem;
         }
@@ -251,7 +264,7 @@
         
         /* FIX: Ensure the nav container allows all items on one line */
         nav {
-            margin: 10px 0; 
+            margin: 10px 0 0; 
             white-space: nowrap; 
             overflow-x: auto; 
             -webkit-overflow-scrolling: touch; 
@@ -280,9 +293,7 @@
       <a href="#savethedate">Save the Date</a>
       <a href="#entourage">Entourage</a>
       <a href="#location">Location</a>
-      <a href="#registry">Registry</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#faq">FAQ</a>
+      <a href="#moodboard">Mood Board</a>
     </nav>
   </header>
 
