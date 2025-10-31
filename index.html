@@ -40,11 +40,9 @@
       padding: 20px;
     }
     
-    /* NEW STYLE for Monogram Image */
+    /* NEW STYLE for Monogram Image (ENLARGED) */
     .monogram {
-        /* Assuming A & J Logo.png is the correct file name based on files list, 
-           if it's Monogram.png, change the src in the HTML below */
-        height: 150px; /* Monogram size enlarged */
+        height: 250px; /* ENLARGED: Increased size for desktop view */
         width: auto;
         margin-bottom: 10px;
     }
@@ -84,8 +82,6 @@
         margin: 0 auto; /* Centers the content wrapper */
     }
     
-    /* Removed #calendar and #calendar img styles as the image is removed */
-
     /* NEW STYLE: Significantly increased countdown size */
     #countdown {
       font-size: 4rem; /* Enlarged countdown font size */
@@ -229,7 +225,7 @@
     @media (max-width: 768px) {
         /* Adjusted Monogram size for mobile */
         .monogram {
-            height: 100px;
+            height: 120px; /* Adjusted mobile size */
         }
 
         /* Adjusted Countdown size for mobile */
@@ -250,12 +246,12 @@
             max-width: 100%; 
         }
         #entourage .single-content-box {
-            max-width: 100%; /* Stack entourage images on small screens */
+            max-width: 100%; 
         }
         
         /* FIX: Ensure the nav container allows all items on one line */
         nav {
-            margin: 10px 0; /* Reduced vertical margin */
+            margin: 10px 0; 
             white-space: nowrap; 
             overflow-x: auto; 
             -webkit-overflow-scrolling: touch; 
@@ -274,7 +270,8 @@
 <body>
 
   <header>
-    <img src="A & J Logo.png" alt="Aaron & Jade Monogram" class="monogram">
+    <img src="Monogram.png" alt="Aaron & Jade Monogram" class="monogram">
+    
     <p class="tagline">Under the twilight sky, we say "I Do"<br>Amid the whispers of the woods, we promise forever.</p>
     
     <nav>
@@ -293,7 +290,7 @@
     <div class="content-wrapper">
         <h2>Event Details</h2>
         <div id="countdown"></div>
-        </div>
+    </div>
   </section>
 
   <section id="location">
