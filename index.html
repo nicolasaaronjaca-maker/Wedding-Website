@@ -49,7 +49,7 @@
       align-items: center;
     }
     
-    /* Monogram Image (INCREASED SIZE) */
+    /* Monogram Image (INCREASED DESKTOP SIZE) */
     .monogram {
         height: 650px; 
         width: auto;
@@ -59,12 +59,14 @@
 
     /* Adjusting the visible audio player so it doesn't interrupt the design much */
     audio {
-        position: absolute; /* Place it in a fixed spot */
-        top: 10px;
-        right: 10px;
-        width: 200px;
-        opacity: 0.7; /* Make it slightly transparent */
-        z-index: 10; /* Ensure it's always on top */
+        position: fixed; /* Changed from absolute to fixed to ensure it scrolls with the page */
+        top: 15px;
+        right: 15px;
+        width: 250px; /* Slightly larger for easier access */
+        opacity: 0.85; 
+        z-index: 100; /* High z-index to be on top of everything */
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.2);
     }
 
     nav {
@@ -253,7 +255,7 @@
     }
 
 
-    /* Media query for mobile */
+    /* Media query for phone (max-width: 768px) */
     @media (max-width: 768px) {
         /* Reduce header padding/height for smaller screens */
         header {
@@ -261,9 +263,9 @@
             padding: 20px 15px 30px; 
         }
 
-        /* Adjusted Monogram size for mobile */
+        /* Adjusted Monogram size for mobile (FIXED SIZE) */
         .monogram {
-            height: 350px; 
+            height: 250px; /* Reduced from 350px back to 250px for better fit */
             margin-top: 20px;
         }
 
@@ -284,9 +286,10 @@
 
         /* Mobile adjustment for audio player */
         audio {
-            width: 100%;
-            top: 0;
-            left: 0;
+            width: 95%;
+            top: 5px;
+            right: 2.5%;
+            left: 2.5%;
             opacity: 1;
         }
 
@@ -323,8 +326,8 @@
 </head>
 <body>
   
-  <audio autoplay loop controls>
-    <source src="Song.mp3" type="audio/mp3">
+  <audio id="background-music" autoplay loop controls>
+    <source src="song.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
@@ -457,6 +460,20 @@
 
     const interval = setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // AUTOPLAY ATTEMPT SCRIPT
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const music = document.getElementById('background-music');
+        if (music) {
+            // Attempt to play after a short delay
+            setTimeout(() => {
+                music.play().catch(error => {
+                    // Fail gracefully and leave the controls visible for user interaction.
+                });
+            }, 500); // 500ms delay
+        }
+    });
+
   </script>
 
 </body>
