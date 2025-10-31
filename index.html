@@ -57,18 +57,16 @@
         transition: height 0.3s; 
     }
 
-    /* Audio Player is now visible by default for manual control */
+    /* **UPDATED STYLING FOR DISCREET AUDIO PLAYER** */
     audio {
         position: fixed; 
-        top: 15px;
+        bottom: 15px; /* Moved to bottom */
         right: 15px;
-        width: 250px; 
-        opacity: 0.85; 
+        width: 150px; /* Reduced width */
+        opacity: 0.8; 
         z-index: 100; 
         border-radius: 50px;
         background: rgba(255, 255, 255, 0.2);
-        
-        /* Ensure controls are visible when loaded */
         visibility: visible !important; 
     }
 
@@ -289,10 +287,10 @@
 
         /* Mobile adjustment for audio player */
         audio {
-            width: 95%;
-            top: 5px;
-            right: 2.5%;
-            left: 2.5%;
+            width: 100px; /* Even smaller on phones */
+            bottom: 5px;
+            right: 5px;
+            left: auto;
             opacity: 1;
         }
 
@@ -465,8 +463,6 @@
 
     const interval = setInterval(updateCountdown, 1000);
     updateCountdown();
-
-    // The entire autoplay script was removed to eliminate the problematic welcome screen.
 
   </script>
 
