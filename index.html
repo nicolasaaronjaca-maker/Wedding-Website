@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aaron & Jade Wedding</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  
   <style>
     body {
       font-family: 'Georgia', serif;
@@ -39,17 +42,16 @@
     header {
       background: rgba(0, 0, 0, 0.5);
       padding: 20px 20px 40px; 
-      /* New styles for 1st page capture */
       min-height: 100vh; 
       display: flex;
       flex-direction: column;
-      justify-content: center; /* Centers content vertically */
+      justify-content: center; 
       align-items: center;
     }
     
-    /* Monogram Image (ENLARGED & FOCUSED) */
+    /* Monogram Image */
     .monogram {
-        height: 500px; /* Further ENLARGED for impact */
+        height: 500px; 
         width: auto;
         margin: 50px 0 20px 0; 
         transition: height 0.3s; 
@@ -64,10 +66,23 @@
       text-decoration: none;
       font-weight: bold;
     }
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 10px;
+    
+    /* DEFAULT H2 STYLE (for all other sections) */
+    section h2 {
+        font-family: 'Georgia', serif; /* Use default font */
+        font-size: 2rem;
+        margin-top: 0;
     }
+    
+    /* SPECIFIC STYLE: Only the "Our Entourage" H2 gets the script font */
+    #entourage h2 {
+      /* Placeholder for Brittany. Change 'Dancing Script' to 'Brittany' 
+         once the correct font is linked/imported. */
+      font-family: 'Dancing Script', cursive; 
+      font-size: 3.5rem; /* Make the script font nice and large */
+    }
+
+
     .tagline {
       font-size: 1.5rem;
       font-style: italic;
@@ -78,7 +93,7 @@
     section {
       margin: 0; 
       padding: 0; 
-      margin-bottom: 20px; /* Spacing between sections */
+      margin-bottom: 20px; 
     }
     
     /* Content Wrapper: Adds dark overlay for text readability */
@@ -240,7 +255,7 @@
 
         /* Adjusted Monogram size for mobile */
         .monogram {
-            height: 250px; /* Increased mobile size */
+            height: 250px; 
             margin-top: 20px;
         }
 
@@ -248,6 +263,17 @@
         #countdown {
             font-size: 2.5rem; 
         }
+        
+        /* Mobile adjustment for Entourage h2 */
+        #entourage h2 {
+          font-size: 2.5rem;
+        }
+        
+        /* Mobile adjustment for all other h2 */
+        section h2 {
+          font-size: 1.8rem;
+        }
+
 
         .tagline {
             font-size: 1.1rem;
@@ -331,7 +357,7 @@
         <div class="divider"></div>
         <div class="moodboard-container">
           <div class="moodboard-item">
-            <img src="Mood Board.png" alt="Mood Board"> 
+            <img src="Mood Board Finaal.png" alt="Mood Board"> 
           </div>
         </div>
     </div>
