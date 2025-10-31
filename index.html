@@ -19,6 +19,50 @@
       position: relative; 
     }
 
+    /* --- WELCOME SCREEN STYLES --- */
+    #welcome-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Use your main background image here to make the transition seamless */
+        background: url('Background.jpg') no-repeat center center;
+        background-size: cover;
+        z-index: 9999; /* Ensure it covers everything */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: opacity 1.5s ease-in-out, visibility 1.5s;
+    }
+
+    .welcome-text {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3rem;
+        margin-bottom: 40px;
+        text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    }
+
+    .enter-button {
+        padding: 15px 35px;
+        background: #ffddaa;
+        color: black;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .enter-button:hover {
+        background: #e6c799;
+    }
+    /* ------------------------------ */
+
+
     /* CRITICAL FIX: The Pseudo-element for Fixed Background */
     body::before {
       content: '';
@@ -57,14 +101,14 @@
         transition: height 0.3s; 
     }
 
-    /* Adjusting the visible audio player so it doesn't interrupt the design much */
+    /* Keep audio controls fixed for user control after entry */
     audio {
-        position: fixed; /* Changed from absolute to fixed to ensure it scrolls with the page */
+        position: fixed; 
         top: 15px;
         right: 15px;
-        width: 250px; /* Slightly larger for easier access */
+        width: 250px; 
         opacity: 0.85; 
-        z-index: 100; /* High z-index to be on top of everything */
+        z-index: 100; 
         border-radius: 50px;
         background: rgba(255, 255, 255, 0.2);
     }
@@ -265,7 +309,7 @@
 
         /* Adjusted Monogram size for mobile (FIXED SIZE) */
         .monogram {
-            height: 250px; /* Reduced from 350px back to 250px for better fit */
+            height: 250px; 
             margin-top: 20px;
         }
 
@@ -326,10 +370,18 @@
 </head>
 <body>
   
-  <audio id="background-music" autoplay loop controls>
+  <audio id="background-music" loop controls>
     <source src="song.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
+
+  <div id="welcome-screen">
+      <p class="welcome-text">Aaron & Jade</p>
+      <button class="enter-button" id="enter-site-button">
+          Play Music & Enter Site
+      </button>
+  </div>
+
 
   <header>
     <img src="Monogram.png" alt="Aaron & Jade Monogram" class="monogram">
@@ -438,6 +490,7 @@
   <script>
     // Countdown Script
     const countdown = document.getElementById("countdown");
+    // Date is set to April 16, 2026
     const weddingDate = new Date("April 16, 2026 00:00:00").getTime();
 
     function updateCountdown() {
@@ -461,18 +514,29 @@
     const interval = setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // AUTOPLAY ATTEMPT SCRIPT
-    document.addEventListener('DOMContentLoaded', (event) => {
+
+    // --- AUTOPLAY FIX VIA WELCOME SCREEN ---
+    document.addEventListener('DOMContentLoaded', () => {
         const music = document.getElementById('background-music');
-        if (music) {
-            // Attempt to play after a short delay
+        const enterButton = document.getElementById('enter-site-button');
+        const welcomeScreen = document.getElementById('welcome-screen');
+
+        enterButton.addEventListener('click', () => {
+            // 1. Play the music (this is guaranteed to work now)
+            music.play().catch(error => {
+                console.log("Error playing music:", error);
+            });
+            
+            // 2. Fade out the welcome screen
+            welcomeScreen.style.opacity = '0';
+            
+            // 3. Completely hide the screen after the fade transition ends
             setTimeout(() => {
-                music.play().catch(error => {
-                    // Fail gracefully and leave the controls visible for user interaction.
-                });
-            }, 500); // 500ms delay
-        }
+                welcomeScreen.style.visibility = 'hidden';
+            }, 1500); // Must match the CSS transition time
+        });
     });
+    // ----------------------------------------
 
   </script>
 
