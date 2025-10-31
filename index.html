@@ -13,20 +13,20 @@
       text-align: center;
       background-color: #333; /* Fallback color */
       
-      position: relative; /* Position body relative to anchor the pseudo-element */
+      position: relative; 
     }
 
     /* CRITICAL FIX: The Pseudo-element for Fixed Background */
     body::before {
       content: '';
-      position: fixed; /* Stays fixed in the viewport */
+      position: fixed; 
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: url('Background.jpg') no-repeat center center;
       background-size: cover;
-      z-index: -1; /* Puts the background behind all content */
+      z-index: -1; 
     }
 
     /* All content must be above the background */
@@ -39,6 +39,16 @@
       background: rgba(0, 0, 0, 0.5);
       padding: 20px;
     }
+    
+    /* NEW STYLE for Monogram Image */
+    .monogram {
+        /* Assuming A & J Logo.png is the correct file name based on files list, 
+           if it's Monogram.png, change the src in the HTML below */
+        height: 150px; /* Monogram size enlarged */
+        width: auto;
+        margin-bottom: 10px;
+    }
+
     nav {
       margin: 15px 0;
     }
@@ -74,20 +84,14 @@
         margin: 0 auto; /* Centers the content wrapper */
     }
     
-    #calendar {
-      display: flex;
-      justify-content: center;
-    }
-    #calendar img {
-      width: 80%;
-      max-width: 700px;
-      height: auto;
-      border-radius: 8px;
-    }
+    /* Removed #calendar and #calendar img styles as the image is removed */
+
+    /* NEW STYLE: Significantly increased countdown size */
     #countdown {
-      font-size: 1.8rem;
+      font-size: 4rem; /* Enlarged countdown font size */
       font-weight: bold;
       margin-bottom: 20px;
+      margin-top: 20px;
       color: #ffddaa;
     }
     .divider {
@@ -223,6 +227,16 @@
 
     /* Media query for mobile */
     @media (max-width: 768px) {
+        /* Adjusted Monogram size for mobile */
+        .monogram {
+            height: 100px;
+        }
+
+        /* Adjusted Countdown size for mobile */
+        #countdown {
+            font-size: 3rem; 
+        }
+
         h1 {
             font-size: 2.5rem;
         }
@@ -242,17 +256,16 @@
         /* FIX: Ensure the nav container allows all items on one line */
         nav {
             margin: 10px 0; /* Reduced vertical margin */
-            /* Force content into a single line */
             white-space: nowrap; 
-            overflow-x: auto; /* Allows horizontal scrolling if absolutely necessary */
-            -webkit-overflow-scrolling: touch; /* Improved scrolling on iOS */
+            overflow-x: auto; 
+            -webkit-overflow-scrolling: touch; 
         }
         
         /* FIX: Extremely small spacing to keep all links together */
         nav a {
-            font-size: 0.7rem; /* Even smaller font size */
-            margin: 0 3px; /* Minimal margin between links */
-            padding: 5px 2px; /* Add small padding for easier tapping */
+            font-size: 0.7rem; 
+            margin: 0 3px; 
+            padding: 5px 2px; 
             display: inline-block;
         }
     }
@@ -261,15 +274,18 @@
 <body>
 
   <header>
-    <h1>Aaron & Jade</h1>
+    <img src="A & J Logo.png" alt="Aaron & Jade Monogram" class="monogram">
     <p class="tagline">Under the twilight sky, we say "I Do"<br>Amid the whispers of the woods, we promise forever.</p>
+    
     <nav>
       <a href="#event">Event</a>
-      <a href="#location">Location</a>
-      <a href="#moodboard">Mood Board</a>
       <a href="#rsvp">RSVP</a>
       <a href="#savethedate">Save the Date</a>
       <a href="#entourage">Entourage</a>
+      <a href="#location">Location</a>
+      <a href="#registry">Registry</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
     </nav>
   </header>
 
@@ -277,10 +293,7 @@
     <div class="content-wrapper">
         <h2>Event Details</h2>
         <div id="countdown"></div>
-        <div id="calendar">
-          <img src="April 2026.jpg" alt="Wedding Week Calendar">
         </div>
-    </div>
   </section>
 
   <section id="location">
@@ -310,7 +323,7 @@
         <div class="divider"></div>
         <div class="moodboard-container">
           <div class="moodboard-item">
-            <img src="Mood Board Finaal.png" alt="Mood Board"> 
+            <img src="Mood Board.png" alt="Mood Board"> 
           </div>
         </div>
     </div>
@@ -385,7 +398,7 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdown.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     const interval = setInterval(updateCountdown, 1000);
@@ -394,5 +407,3 @@
 
 </body>
 </html>
-
-
