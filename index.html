@@ -111,6 +111,9 @@
         z-index: 100; 
         border-radius: 50px;
         background: rgba(255, 255, 255, 0.2);
+        
+        /* HIDDEN BY DEFAULT: WILL BE MADE VISIBLE BY JAVASCRIPT ONCE PLAY IS ATTEMPTED */
+        visibility: hidden; 
     }
 
     nav {
@@ -522,18 +525,24 @@
         const welcomeScreen = document.getElementById('welcome-screen');
 
         enterButton.addEventListener('click', () => {
-            // 1. Play the music (this is guaranteed to work now)
-            music.play().catch(error => {
-                console.log("Error playing music:", error);
+            // Attempt to play the music first
+            music.play().then(() => {
+                // If successful, show controls
+                music.style.visibility = 'visible';
+                
+            }).catch(error => {
+                // If it fails for any reason, show controls so user can press play manually
+                console.log("Music play attempt failed, showing controls for manual play.", error);
+                music.style.visibility = 'visible';
+            }).finally(() => {
+                // Fade out the welcome screen regardless of music success
+                welcomeScreen.style.opacity = '0';
+                
+                // Completely hide the screen after the fade transition ends
+                setTimeout(() => {
+                    welcomeScreen.style.visibility = 'hidden';
+                }, 1500); // Must match the CSS transition time
             });
-            
-            // 2. Fade out the welcome screen
-            welcomeScreen.style.opacity = '0';
-            
-            // 3. Completely hide the screen after the fade transition ends
-            setTimeout(() => {
-                welcomeScreen.style.visibility = 'hidden';
-            }, 1500); // Must match the CSS transition time
         });
     });
     // ----------------------------------------
