@@ -60,14 +60,16 @@
     /* **UPDATED STYLING FOR DISCREET AUDIO PLAYER** */
     audio {
         position: fixed; 
-        bottom: 15px; /* Moved to bottom */
+        bottom: 15px; 
         right: 15px;
-        width: 150px; /* Reduced width */
-        opacity: 0.8; 
-        z-index: 100; 
+        width: 150px; 
+        opacity: 0.95; 
+        /* CRITICAL FIX: Set to the highest possible value */
+        z-index: 20000; 
         border-radius: 50px;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.4); /* Slightly lighter background */
         visibility: visible !important; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
 
     nav {
@@ -287,11 +289,13 @@
 
         /* Mobile adjustment for audio player */
         audio {
-            width: 100px; /* Even smaller on phones */
+            position: fixed; /* Explicitly fixed on mobile */
+            width: 100px; 
             bottom: 5px;
             right: 5px;
             left: auto;
             opacity: 1;
+            z-index: 20000; /* Ensure it stays on top */
         }
 
         .tagline {
