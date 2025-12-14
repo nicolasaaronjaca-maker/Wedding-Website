@@ -17,6 +17,8 @@
       background-color: #333; /* Fallback color */
       
       position: relative; 
+      /* CRITICAL STABILITY FIX: Ensure body takes up the full visible screen height */
+      min-height: 100vh;
     }
 
     /* CRITICAL FIX: The Pseudo-element for Fixed Background */
@@ -40,7 +42,7 @@
 
     /* HERO HEADER: Captures the 1st Page (100vh) */
     header {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.5); /* This creates the dark overlay */
       padding: 20px 20px 40px; 
       min-height: 100vh; 
       display: flex;
