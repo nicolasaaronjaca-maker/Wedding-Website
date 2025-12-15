@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
-    /* A3: Added Visually Hidden Class for Accessible H1 */
+    /* Visually Hidden Class for Accessible H1 */
     .visually-hidden { 
       position: absolute; 
       width: 1px; 
@@ -28,12 +28,13 @@
       padding: 0;
       color: white;
       text-align: center;
-      background-color: #333; /* Fallback color */
+      background-color: #333; 
       
       position: relative; 
       min-height: 100vh;
     }
 
+    /* Fixed Background Pseudo-element */
     body::before {
       content: '';
       position: fixed; 
@@ -51,11 +52,11 @@
         z-index: 1; 
     }
 
-    /* HERO HEADER */
+    /* HERO HEADER: Adjusted min-height for larger monogram */
     header {
       background: rgba(0, 0, 0, 0.5); 
       padding: 20px 20px 40px; 
-      min-height: 100vh; 
+      min-height: 110vh; /* Increased to accommodate 900px monogram */
       display: flex;
       flex-direction: column;
       justify-content: center; 
@@ -64,16 +65,16 @@
       box-sizing: border-box; 
     }
     
+    /* Monogram Image (MAXIMIZED DESKTOP SIZE) */
     .monogram {
-        height: 800px; 
+        height: 900px; /* Maximize size */
         width: auto;
-        margin: 50px 0 20px 0; 
+        margin: 20px 0 10px 0; /* Reduced margin */
         transition: height 0.3s; 
     }
 
-    /* **UPDATED STYLING FOR DISCREET AUDIO PLAYER** */
+    /* Discreet Audio Player */
     audio {
-      /* C4: Added a bit of top margin to ensure fixed elements don't overlap too much content */
         position: fixed; 
         bottom: 15px; 
         right: 15px;
@@ -94,13 +95,13 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s; /* C4: Added transition for hover effect */
+      transition: color 0.3s; 
     }
     nav a:hover {
-      color: #ffddaa; /* C4: Added hover effect */
+      color: #ffddaa; 
     }
     
-    /* DEFAULT H2 STYLE */
+    /* DEFAULT H2 STYLE (for all other sections) */
     section h2 {
         font-family: 'Georgia', serif; 
         font-size: 2rem;
@@ -125,6 +126,7 @@
       margin-bottom: 20px; 
     }
     
+    /* Content Wrapper: Adds dark overlay for text readability */
     .content-wrapper {
         background: rgba(0, 0, 0, 0.6); 
         padding: 40px 20px; 
@@ -134,6 +136,7 @@
         margin: 0 auto; 
     }
     
+    /* Countdown Size */
     #countdown {
       font-size: 4rem; 
       font-weight: bold;
@@ -276,13 +279,14 @@
     @media (max-width: 768px) {
         
         header {
-            min-height: 85vh; 
+            min-height: 90vh; /* Adjusted for larger monogram */
             padding: 20px 15px 30px; 
         }
 
+        /* Monogram Image (MAXIMIZED MOBILE SIZE) */
         .monogram {
-            height: 250px; 
-            margin-top: 20px;
+            height: 400px; /* Increased from 350px */ 
+            margin-top: 10px; /* Reduced margin */
         }
 
         #countdown {
@@ -316,10 +320,10 @@
         .single-content-box {
             max-width: 100%; 
         }
-        /* C3: Ensured Entourage sections stack vertically on mobile */
+        
         #entourage .single-content-box {
             max-width: 100%; 
-            flex: 0 0 100%; /* Explicitly set to take full width */
+            flex: 0 0 100%; 
         }
         
         /* Nav fixes for horizontal scrolling */
@@ -328,7 +332,6 @@
             white-space: nowrap; 
             overflow-x: auto; 
             -webkit-overflow-scrolling: touch; 
-            /* C4: Added a bit of bottom padding to ensure scrollbar is visible */
             padding-bottom: 5px; 
         }
         
@@ -426,7 +429,8 @@
         <div class="divider"></div>
         <div class="single-box-container">
             <div class="single-content-box">
-                <video controls muted loop> <source src="savethedate.mp4" type="video/mp4">
+                <video controls muted loop>
+                    <source src="savethedate.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <p class="video-caption">A glimpse of our journey — we can’t wait to celebrate with you!</p>
@@ -484,4 +488,3 @@
 
 </body>
 </html>
-
