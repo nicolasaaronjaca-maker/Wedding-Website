@@ -56,7 +56,7 @@
     header {
       background: rgba(0, 0, 0, 0.5); 
       padding: 20px 20px 40px; 
-      min-height: 110vh; /* Increased to accommodate 900px monogram */
+      min-height: 110vh; 
       display: flex;
       flex-direction: column;
       justify-content: center; 
@@ -67,9 +67,9 @@
     
     /* Monogram Image (MAXIMIZED DESKTOP SIZE) */
     .monogram {
-        height: 900px; /* Maximize size */
+        height: 900px; 
         width: auto;
-        margin: 20px 0 10px 0; /* Reduced margin */
+        margin: 20px 0 10px 0; 
         transition: height 0.3s; 
     }
 
@@ -112,6 +112,15 @@
     #entourage h2 {
       font-family: 'Dancing Script', cursive; 
       font-size: 3.5rem; 
+    }
+
+    /* NEW STYLE: Specific paragraph styling for the gift guide statement */
+    .gift-statement {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #ffddaa;
+        margin: 10px auto 25px;
+        max-width: 800px;
     }
 
     .tagline {
@@ -279,14 +288,14 @@
     @media (max-width: 768px) {
         
         header {
-            min-height: 90vh; /* Adjusted for larger monogram */
+            min-height: 90vh; 
             padding: 20px 15px 30px; 
         }
 
         /* Monogram Image (MAXIMIZED MOBILE SIZE) */
         .monogram {
-            height: 400px; /* Increased from 350px */ 
-            margin-top: 10px; /* Reduced margin */
+            height: 400px; 
+            margin-top: 10px; 
         }
 
         #countdown {
@@ -299,6 +308,11 @@
         
         section h2 {
           font-size: 1.8rem;
+        }
+
+        /* Mobile specific Gift Guide statement style */
+        .gift-statement {
+            font-size: 1rem;
         }
 
         audio {
@@ -360,7 +374,7 @@
     <nav>
       <a href="#event">Event</a>
       <a href="#rsvp">RSVP</a>
-      <a href="#location">Location</a>
+      <a href="#giftguide">Gift Guide</a> <a href="#location">Location</a>
       <a href="#savethedate">Save the Date</a>
       <a href="#entourage">Entourage</a>
       <a href="#moodboard">Mood Board</a>
@@ -370,7 +384,23 @@
   <section id="event">
     <div class="content-wrapper">
         <h2>Event Details</h2>
+        <div class="divider"></div>
         <div id="countdown"></div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="content-wrapper">
+        <h2>RSVP</h2>
+        <div class="divider"></div>
+        <p class="rsvp-message">
+          We would be honored by your presence on our wedding day.<br>
+          Kindly confirm your attendance by clicking the button below:
+        </p>
+        <p class="rsvp-instruction">
+          ✦ Please make sure to enter your **Full Name** in the format *FirstName LastName (FN LN)* when submitting your RSVP.
+        </p>
+        <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
     </div>
   </section>
 
@@ -395,34 +425,6 @@
     </div>
   </section>
 
-  <section id="moodboard">
-    <div class="content-wrapper">
-        <h2>Mood Board & Color Motifs</h2>
-        <div class="divider"></div>
-        <div class="moodboard-container">
-          <div class="moodboard-item">
-            <img src="Mood Board Finaal.png" alt="Wedding Mood Board showing rustic and twilight colors"> 
-          </div>
-        </div>
-    </div>
-  </section>
-
-  <section id="rsvp">
-    <div class="content-wrapper">
-        <h2>RSVP</h2>
-        <div class="divider"></div>
-        <p class="rsvp-message">
-          We would be honored by your presence on our wedding day.<br>
-          Kindly confirm your attendance by clicking the button below:
-        </p>
-        <p class="rsvp-instruction">
-          ✦ Please make sure to enter your **Full Name** in the format *FirstName LastName (FN LN)* when submitting your RSVP.
-        </p>
-        <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
-          
-    </div>
-  </section>
-  
   <section id="savethedate">
     <div class="content-wrapper">
         <h2>Save the Date</h2>
@@ -454,6 +456,28 @@
             </div>
         </div>
         <p class="video-caption" style="margin-top: 20px;">Meet our cherished entourage — the people who’ll stand beside us.</p>
+    </div>
+  </section>
+
+  <section id="giftguide">
+    <div class="content-wrapper">
+        <h2>Gift Guide</h2>
+        <div class="divider"></div>
+        <p class="gift-statement">
+            Your presence is the only gift we truly need. However, if you wish to honor us with a gift, a monetary contribution would be greatly appreciated as we save for our future together and plan our dream home/honeymoon.
+        </p>
+        </div>
+  </section>
+
+  <section id="moodboard">
+    <div class="content-wrapper">
+        <h2>Mood Board & Color Motifs</h2>
+        <div class="divider"></div>
+        <div class="moodboard-container">
+          <div class="moodboard-item">
+            <img src="Mood Board Finaal.png" alt="Wedding Mood Board showing rustic and twilight colors"> 
+          </div>
+        </div>
     </div>
   </section>
 
