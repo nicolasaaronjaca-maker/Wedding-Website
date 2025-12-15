@@ -1,480 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aaron & Jade Wedding</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-  
-  <style>
-    body {
-      font-family: 'Georgia', serif;
-      margin: 0;
-      padding: 0;
-      color: white;
-      text-align: center;
-      background-color: #333; /* Fallback color */
-      
-      position: relative; 
-      /* CRITICAL STABILITY FIX: Ensure body takes up the full visible screen height */
-      min-height: 100vh;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aaron & Jade Wedding</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* A3: Added Visually Hidden Class for Accessible H1 */
+    .visually-hidden { 
+      position: absolute; 
+      width: 1px; 
+      height: 1px; 
+      margin: -1px; 
+      border: 0; 
+      padding: 0; 
+      white-space: nowrap; 
+      clip-path: inset(100%); 
+      clip: rect(0 0 0 0); 
+      overflow: hidden; 
+    }
+    
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-align: center;
+      background-color: #333; /* Fallback color */
+      
+      position: relative; 
+      min-height: 100vh;
+    }
 
-    /* CRITICAL FIX: The Pseudo-element for Fixed Background */
-    body::before {
-      content: '';
-      position: fixed; 
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('Background.jpg') no-repeat center center;
-      background-size: cover;
-      z-index: -1; 
-    }
+    body::before {
+      content: '';
+      position: fixed; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('Background.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -1; 
+    }
 
-    /* All content must be above the background */
-    header, section {
-        position: relative;
-        z-index: 1; 
-    }
+    header, section {
+        position: relative;
+        z-index: 1; 
+    }
 
-    /* HERO HEADER: Captures the 1st Page (100vh) */
-    header {
-      background: rgba(0, 0, 0, 0.5); /* This creates the dark overlay */
-      padding: 20px 20px 40px; 
-      min-height: 100vh; 
-      display: flex;
-      flex-direction: column;
-      justify-content: center; 
-      align-items: center;
-      /* CRITICAL FIX: Ensure full width and correct padding calculation */
-      width: 100%; 
-      box-sizing: border-box; 
-    }
-    
-    /* Monogram Image (RESTORED ORIGINAL DESKTOP SIZE) */
-    .monogram {
-        height: 650px; 
-        width: auto;
-        margin: 50px 0 20px 0; 
-        transition: height 0.3s; 
-    }
+    /* HERO HEADER */
+    header {
+      background: rgba(0, 0, 0, 0.5); 
+      padding: 20px 20px 40px; 
+      min-height: 100vh; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center; 
+      align-items: center;
+      width: 100%; 
+      box-sizing: border-box; 
+    }
+    
+    .monogram {
+        height: 650px; 
+        width: auto;
+        margin: 50px 0 20px 0; 
+        transition: height 0.3s; 
+    }
 
-    /* **UPDATED STYLING FOR DISCREET AUDIO PLAYER** */
-    audio {
-        position: fixed; 
-        bottom: 15px; 
-        right: 15px;
-        width: 150px; 
-        opacity: 0.95; 
-        /* CRITICAL FIX: Set to the highest possible value */
-        z-index: 20000; 
-        border-radius: 50px;
-        background: rgba(255, 255, 255, 0.4); /* Slightly lighter background */
-        visibility: visible !important; 
-        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
+    /* **UPDATED STYLING FOR DISCREET AUDIO PLAYER** */
+    audio {
+      /* C4: Added a bit of top margin to ensure fixed elements don't overlap too much content */
+        position: fixed; 
+        bottom: 15px; 
+        right: 15px;
+        width: 150px; 
+        opacity: 0.95; 
+        z-index: 20000; 
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.4); 
+        visibility: visible !important; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
 
-    nav {
-      margin: 20px 0 0; 
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    
-    /* DEFAULT H2 STYLE (for all other sections) */
-    section h2 {
-        font-family: 'Georgia', serif; 
-        font-size: 2rem;
-        margin-top: 0;
-    }
-    
-    /* SPECIFIC STYLE: Only the "Our Entourage" H2 gets the script font */
-    #entourage h2 {
-      font-family: 'Dancing Script', cursive; 
-      font-size: 3.5rem; 
-    }
+    nav {
+      margin: 20px 0 0; 
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s; /* C4: Added transition for hover effect */
+    }
+    nav a:hover {
+      color: #ffddaa; /* C4: Added hover effect */
+    }
+    
+    /* DEFAULT H2 STYLE */
+    section h2 {
+        font-family: 'Georgia', serif; 
+        font-size: 2rem;
+        margin-top: 0;
+    }
+    
+    /* SPECIFIC STYLE: Only the "Our Entourage" H2 gets the script font */
+    #entourage h2 {
+      font-family: 'Dancing Script', cursive; 
+      font-size: 3.5rem; 
+    }
 
+    .tagline {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 20px; 
+    }
+    
+    section {
+      margin: 0; 
+      padding: 0; 
+      margin-bottom: 20px; 
+    }
+    
+    .content-wrapper {
+        background: rgba(0, 0, 0, 0.6); 
+        padding: 40px 20px; 
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 1000px; 
+        margin: 0 auto; 
+    }
+    
+    #countdown {
+      font-size: 4rem; 
+      font-weight: bold;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      color: #ffddaa;
+    }
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: #ffddaa;
+      margin: 15px auto 25px auto;
+      border-radius: 2px;
+    }
+    .location-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .location-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .location-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .guide-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ffddaa;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .guide-btn:hover {
+      background: #e6c799;
+    }
+    .rsvp-message {
+      font-size: 1.4rem;
+      font-style: italic;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #f8e6d4;
+      margin-bottom: 15px;
+    }
+    .rsvp-instruction {
+      font-size: 1rem;
+      color: #ffddaa;
+      margin-bottom: 25px;
+    }
+    .rsvp-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #ffddaa;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .rsvp-btn:hover {
+      background: #e6c799;
+    }
+    
+    /* Single Content Box Styling (for video and entourage) */
+    .single-box-container {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px;
+    }
 
-    .tagline {
-      font-size: 1.5rem;
-      font-style: italic;
-      margin-bottom: 20px; 
-    }
-    
-    /* SECTION CONTAINER: Used only for spacing and structure */
-    section {
-      margin: 0; 
-      padding: 0; 
-      margin-bottom: 20px; 
-    }
-    
-    /* Content Wrapper: Adds dark overlay for text readability */
-    .content-wrapper {
-        background: rgba(0, 0, 0, 0.6); 
-        padding: 40px 20px; 
-        border-radius: 0;
-        box-shadow: none;
-        max-width: 1000px; 
-        margin: 0 auto; 
-    }
-    
-    /* NEW STYLE: Significantly increased countdown size */
-    #countdown {
-      font-size: 4rem; 
-      font-weight: bold;
-      margin-bottom: 20px;
-      margin-top: 20px;
-      color: #ffddaa;
-    }
-    .divider {
-      width: 60px;
-      height: 4px;
-      background: #ffddaa;
-      margin: 15px auto 25px auto;
-      border-radius: 2px;
-    }
-    .location-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-    .location-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 20px;
-      width: 300px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-    .location-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .guide-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #ffddaa;
-      color: black;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .guide-btn:hover {
-      background: #e6c799;
-    }
-    .rsvp-message {
-      font-size: 1.4rem;
-      font-style: italic;
-      font-family: 'Georgia', 'Times New Roman', serif;
-      color: #f8e6d4;
-      margin-bottom: 15px;
-    }
-    .rsvp-instruction {
-      font-size: 1rem;
-      color: #ffddaa;
-      margin-bottom: 25px;
-    }
-    .rsvp-btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background: #ffddaa;
-      color: black;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .rsvp-btn:hover {
-      background: #e6c799;
-    }
-    
-    /* Single Content Box Styling (for video and entourage) */
-    .single-box-container {
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        gap: 20px;
-    }
+    /* Specific Styling for Entourage Section - Side by side on desktop */
+    #entourage .single-box-container {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 20px; 
+        align-items: flex-start;
+    }
 
-    /* Specific Styling for Entourage Section - Side by side on desktop */
-    #entourage .single-box-container {
-        flex-direction: row; 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 20px; 
-        align-items: flex-start;
-    }
+    #entourage .single-content-box {
+      width: 100%;
+      max-width: 48%; 
+      flex: 1 1 auto; 
+    }
+    
+    /* General content box size */
+    .single-content-box {
+      width: 100%;
+      max-width: 500px; 
+    }
 
-    #entourage .single-content-box {
-      width: 100%;
-      max-width: 48%; 
-      flex: 1 1 auto; 
-    }
-    
-    /* General content box size */
-    .single-content-box {
-      width: 100%;
-      max-width: 500px; 
-    }
-
-    .single-content-box video, 
-    .single-content-box img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-    .video-caption {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      color: #ffddaa;
-      font-style: italic;
-    }
-    
-    /* Mood Board Styling */
-    .moodboard-container {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .moodboard-item {
-        flex: 1 1 100%; 
-        max-width: 100%;
-        margin-bottom: 0;
-    }
-    .moodboard-item img {
-        max-width: 100%;
-        height: auto;
-    }
-    .moodboard-item p { 
-        display: none; 
-    }
+    .single-content-box video, 
+    .single-content-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .video-caption {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #ffddaa;
+      font-style: italic;
+    }
+    
+    /* Mood Board Styling */
+    .moodboard-container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .moodboard-item {
+        flex: 1 1 100%; 
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+    .moodboard-item img {
+        max-width: 100%;
+        height: auto;
+    }
+    .moodboard-item p { 
+        display: none; 
+    }
 
 
-    /* Media query for phone (max-width: 768px) */
-    @media (max-width: 768px) {
-        /* Reduce header padding/height for smaller screens */
-        header {
-            min-height: 85vh; 
-            padding: 20px 15px 30px; 
-        }
+    /* Media query for phone (max-width: 768px) */
+    @media (max-width: 768px) {
+        
+        header {
+            min-height: 85vh; 
+            padding: 20px 15px 30px; 
+        }
 
-        /* Adjusted Monogram size for mobile (RESTORED ORIGINAL MOBILE SIZE) */
-        .monogram {
-            height: 250px; 
-            margin-top: 20px;
-        }
+        .monogram {
+            height: 250px; 
+            margin-top: 20px;
+        }
 
-        /* Adjusted Countdown size for mobile */
-        #countdown {
-            font-size: 2.5rem; 
-        }
-        
-        /* Mobile adjustment for Entourage h2 */
-        #entourage h2 {
-          font-size: 2.5rem;
-        }
-        
-        /* Mobile adjustment for all other h2 */
-        section h2 {
-          font-size: 1.8rem;
-        }
+        #countdown {
+            font-size: 2.5rem; 
+        }
+        
+        #entourage h2 {
+          font-size: 2.5rem;
+        }
+        
+        section h2 {
+          font-size: 1.8rem;
+        }
 
-        /* Mobile adjustment for audio player */
-        audio {
-            position: fixed; /* Explicitly fixed on mobile */
-            width: 100px; 
-            bottom: 5px;
-            right: 5px;
-            left: auto;
-            opacity: 1;
-            z-index: 20000; /* Ensure it stays on top */
-        }
+        audio {
+            position: fixed; 
+            width: 100px; 
+            bottom: 5px;
+            right: 5px;
+            left: auto;
+            opacity: 1;
+            z-index: 20000; 
+        }
 
-        .tagline {
-            font-size: 1.1rem;
-        }
-        .content-wrapper {
-            padding: 30px 15px;
-        }
-        .single-content-box {
-            max-width: 100%; 
-        }
-        #entourage .single-content-box {
-            max-width: 100%; 
-        }
-        
-        /* FIX: Ensure the nav container allows all items on one line */
-        nav {
-            margin: 10px 0 0; 
-            white-space: nowrap; 
-            overflow-x: auto; 
-            -webkit-overflow-scrolling: touch; 
-        }
-        
-        /* FIX: Extremely small spacing to keep all links together */
-        nav a {
-            font-size: 0.7rem; 
-            margin: 0 3px; 
-            padding: 5px 2px; 
-            display: inline-block;
-        }
-    }
-  </style>
+        .tagline {
+            font-size: 1.1rem;
+        }
+        .content-wrapper {
+            padding: 30px 15px;
+        }
+        .single-content-box {
+            max-width: 100%; 
+        }
+        /* C3: Ensured Entourage sections stack vertically on mobile */
+        #entourage .single-content-box {
+            max-width: 100%; 
+            flex: 0 0 100%; /* Explicitly set to take full width */
+        }
+        
+        /* Nav fixes for horizontal scrolling */
+        nav {
+            margin: 10px 0 0; 
+            white-space: nowrap; 
+            overflow-x: auto; 
+            -webkit-overflow-scrolling: touch; 
+            /* C4: Added a bit of bottom padding to ensure scrollbar is visible */
+            padding-bottom: 5px; 
+        }
+        
+        nav a {
+            font-size: 0.7rem; 
+            margin: 0 3px; 
+            padding: 5px 2px; 
+            display: inline-block;
+        }
+    }
+  </style>
 </head>
 <body>
-  
-  <audio id="background-music" loop controls preload="auto">
-    <source src="song.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
+  
+  <audio id="background-music" loop controls preload="auto">
+    <source src="song.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
 
+  <header>
+    <h1 class="visually-hidden">Aaron & Jade Wedding</h1>
+    <img src="Monogram.png" alt="Aaron & Jade Monogram" class="monogram">
+    
+    <p class="tagline">Under the twilight sky, we say "I Do"<br>Amid the whispers of the woods, we promise forever.</p>
+    
+    <nav>
+      <a href="#event">Event</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#location">Location</a>
+      <a href="#savethedate">Save the Date</a>
+      <a href="#entourage">Entourage</a>
+      <a href="#moodboard">Mood Board</a>
+    </nav>
+  </header>
 
-  <header>
-    <img src="Monogram.png" alt="Aaron & Jade Monogram" class="monogram">
-    
-    <p class="tagline">Under the twilight sky, we say "I Do"<br>Amid the whispers of the woods, we promise forever.</p>
-    
-    <nav>
-      <a href="#event">Event</a>
-      <a href="#rsvp">RSVP</a>
-      <a href="#savethedate">Save the Date</a>
-      <a href="#entourage">Entourage</a>
-      <a href="#location">Location</a>
-      <a href="#moodboard">Mood Board</a>
-    </nav>
-  </header>
+  <section id="event">
+    <div class="content-wrapper">
+        <h2>Event Details</h2>
+        <div id="countdown"></div>
+    </div>
+  </section>
 
-  <section id="event">
-    <div class="content-wrapper">
-        <h2>Event Details</h2>
-        <div id="countdown"></div>
-    </div>
-  </section>
+  <section id="location">
+    <div class="content-wrapper">
+        <h2>Location</h2>
+        <div class="divider"></div>
+        <div class="location-container">
+          <div class="location-card">
+            <img src="church.jpg" alt="Our Lady of Lourdes Parish">
+            <h3>Our Lady of Lourdes Parish</h3>
+            <p>Our wedding ceremony will be held at the church.</p>
+            <a class="guide-btn" href="https://www.google.com/maps/place/Our+Lady+of+Lourdes+Parish+Church+-+Silang+Junction+North,+Tagaytay+City,+Cavite+(Diocese+of+Imus)/@14.1112325,120.9548224,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd7764459f8ce3:0xe729ecd446058e72!8m2!3d14.1112325!4d120.9573973!16s%2Fg%2F1v41xzyh?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
+          </div>
+          <div class="location-card">
+            <img src="reception.jpg" alt="Fruella's Events Venue">
+            <h3>Fruella's Events Venue</h3>
+            <p>Join us for the celebration at the reception venue.</p>
+            <a class="guide-btn" href="https://www.google.com/maps/place/Fruella's+Events+Venue+Tagaytay/@14.1328031,120.9266371,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd796d1fd7f119:0x5fccd52277bc6f1!8m2!3d14.1327979!4d120.931508!16s%2Fg%2F11v0gyk507?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
+          </div>
+        </div>
+    </div>
+  </section>
 
-  <section id="location">
-    <div class="content-wrapper">
-        <h2>Location</h2>
-        <div class="divider"></div>
-        <div class="location-container">
-          <div class="location-card">
-            <img src="church.jpg" alt="Church">
-            <h3>Our Lady of Lourdes Parish</h3>
-            <p>Our wedding ceremony will be held at the church.</p>
-            <a class="guide-btn" href="https://www.google.com/maps/place/Our+Lady+of+Lourdes+Parish+Church+-+Silang+Junction+North,+Tagaytay+City,+Cavite+(Diocese+of+Imus)/@14.1112325,120.9548224,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd7764459f8ce3:0xe729ecd446058e72!8m2!3d14.1112325!4d120.9573973!16s%2Fg%2F1v41xzyh?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
-          </div>
-          <div class="location-card">
-            <img src="reception.jpg" alt="Reception">
-            <h3>Fruella's Events Venue</h3>
-            <p>Join us for the celebration at the reception venue.</p>
-            <a class="guide-btn" href="https://www.google.com/maps/place/Fruella's+Events+Venue+Tagaytay/@14.1328031,120.9266371,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd796d1fd7f119:0x5fccd52277bc6f1!8m2!3d14.1327979!4d120.931508!16s%2Fg%2F11v0gyk507?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Guide</a>
-          </div>
-        </div>
-    </div>
-  </section>
+  <section id="moodboard">
+    <div class="content-wrapper">
+        <h2>Mood Board & Color Motifs</h2>
+        <div class="divider"></div>
+        <div class="moodboard-container">
+          <div class="moodboard-item">
+            <img src="Mood Board Finaal.png" alt="Wedding Mood Board showing rustic and twilight colors"> 
+          </div>
+        </div>
+    </div>
+  </section>
 
-  <section id="moodboard">
-    <div class="content-wrapper">
-        <h2>Mood Board & Color Motifs</h2>
-        <div class="divider"></div>
-        <div class="moodboard-container">
-          <div class="moodboard-item">
-            <img src="Mood Board Finaal.png" alt="Mood Board"> 
-          </div>
-        </div>
-    </div>
-  </section>
+  <section id="rsvp">
+    <div class="content-wrapper">
+        <h2>RSVP</h2>
+        <div class="divider"></div>
+        <p class="rsvp-message">
+          We would be honored by your presence on our wedding day.<br>
+          Kindly confirm your attendance by clicking the button below:
+        </p>
+        <p class="rsvp-instruction">
+          ✦ Please make sure to enter your **Full Name** in the format *FirstName LastName (FN LN)* when submitting your RSVP.
+        </p>
+        <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
+          
+    </div>
+  </section>
+  
+  <section id="savethedate">
+    <div class="content-wrapper">
+        <h2>Save the Date</h2>
+        <div class="divider"></div>
+        <div class="single-box-container">
+            <div class="single-content-box">
+                <video controls muted loop> <source src="savethedate.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-caption">A glimpse of our journey — we can’t wait to celebrate with you!</p>
+            </div>
+        </div>
+    </div>
+  </section>
 
-  <section id="rsvp">
-    <div class="content-wrapper">
-        <h2>RSVP</h2>
-        <div class="divider"></div>
-        <p class="rsvp-message">
-          We would be honored by your presence on our wedding day.<br>
-          Kindly confirm your attendance by clicking the button below:
-        </p>
-        <p class="rsvp-instruction">
-          ✦ Please make sure to enter your **Full Name** in the format *FirstName LastName (FN LN)* when submitting your RSVP.
-        </p>
-        <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
-            
-    </div>
-  </section>
-  
-  <section id="savethedate">
-    <div class="content-wrapper">
-        <h2>Save the Date</h2>
-        <div class="divider"></div>
-        <div class="single-box-container">
-            <div class="single-content-box">
-                <video controls autoplay muted loop>
-                    <source src="savethedate.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p class="video-caption">A glimpse of our journey — we can’t wait to celebrate with you!</p>
-            </div>
-        </div>
-    </div>
-  </section>
+  <section id="entourage">
+    <div class="content-wrapper">
+        <h2>Our Entourage</h2>
+        <div class="divider"></div>
+        <div class="single-box-container">
+            
+            <div class="single-content-box">
+                <img src="Entourage List 1.png" alt="Our Entourage List - Part 1: Maid of Honor, Best Man, Bridesmaids, and Groomsmen">
+            </div>
+            
+            <div class="single-content-box">
+                <img src="Entourage List 2.png" alt="Our Entourage List - Part 2: Principal Sponsors, Secondary Sponsors, Flower Girls, and Ring Bearer">
+            </div>
+        </div>
+        <p class="video-caption" style="margin-top: 20px;">Meet our cherished entourage — the people who’ll stand beside us.</p>
+    </div>
+  </section>
 
-  <section id="entourage">
-    <div class="content-wrapper">
-        <h2>Our Entourage</h2>
-        <div class="divider"></div>
-        <div class="single-box-container">
-            
-            <div class="single-content-box">
-                <img src="Entourage List 1.png" alt="Our Entourage List - Part 1">
-            </div>
-            
-            <div class="single-content-box">
-                <img src="Entourage List 2.png" alt="Our Entourage List - Part 2">
-            </div>
-        </div>
-        <p class="video-caption" style="margin-top: 20px;">Meet our cherished entourage — the people who’ll stand beside us.</p>
-    </div>
-  </section>
+  <script>
+    // Countdown Script
+    const countdown = document.getElementById("countdown");
+    // Date is set to April 16, 2026
+    const weddingDate = new Date("April 16, 2026 00:00:00").getTime();
 
-  <script>
-    // Countdown Script
-    const countdown = document.getElementById("countdown");
-    // Date is set to April 16, 2026
-    const weddingDate = new Date("April 16, 2026 00:00:00").getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
+      if (distance <= 0) {
+        countdown.innerHTML = "It's our wedding day!";
+        clearInterval(interval);
+        return;
+      }
 
-      if (distance <= 0) {
-        countdown.innerHTML = "It's our wedding day!";
-        clearInterval(interval);
-        return;
-      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
 
-      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
+    const interval = setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-    const interval = setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-  </script>
+  </script>
 
 </body>
 </html>
