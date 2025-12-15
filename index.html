@@ -94,9 +94,9 @@
         background: rgba(255, 255, 255, 0.4); 
     }
 
-    /* Removed previous styling for <audio> tag as it now has no controls */
+    /* Hide the default audio element since we use a custom button */
     audio {
-        display: none; /* Hide the element entirely, as button handles control */
+        display: none;
     }
 
     nav {
@@ -120,6 +120,7 @@
         margin-top: 0;
     }
     
+    /* Gift Guide statement styling */
     .gift-statement {
         font-size: 1.2rem;
         line-height: 1.6;
@@ -265,7 +266,7 @@
       color: #ffddaa;
       font-style: italic;
     }
-    /* Adjusted caption margin for new placement */
+    /* Adjusted caption margin for new placement in Entourage */
     #entourage .video-caption {
         margin-top: 5px;
         margin-bottom: 30px;
@@ -518,7 +519,7 @@
     const interval = setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // NEW Music Toggle Script
+    // Music Toggle Script
     const music = document.getElementById('background-music');
     const toggleButton = document.getElementById('music-toggle');
 
@@ -530,6 +531,13 @@
             music.muted = true;
             toggleButton.textContent = '🔇';
         }
+    });
+
+    // FIX: Explicitly attempt to play the muted audio file on page load
+    document.addEventListener('DOMContentLoaded', (event) => {
+        music.play().catch(error => {
+            console.log("Audio playback failed (usually due to policy restriction). User must click to unmute.");
+        });
     });
 
   </script>
