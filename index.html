@@ -73,18 +73,30 @@
         transition: height 0.3s; 
     }
 
-    /* Discreet Audio Player */
-    audio {
+    /* NEW MUSIC TOGGLE BUTTON STYLING */
+    #music-toggle {
         position: fixed; 
         bottom: 15px; 
         right: 15px;
-        width: 150px; 
-        opacity: 0.95; 
-        z-index: 20000; 
-        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.2); 
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        z-index: 20000;
+        transition: background 0.3s, border-color 0.3s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    #music-toggle:hover {
         background: rgba(255, 255, 255, 0.4); 
-        visibility: visible !important; 
-        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    /* Removed previous styling for <audio> tag as it now has no controls */
+    audio {
+        display: none; /* Hide the element entirely, as button handles control */
     }
 
     nav {
@@ -108,12 +120,6 @@
         margin-top: 0;
     }
     
-    /* REMOVED: Specific script font style for #entourage h2 */
-    /* #entourage h2 {
-      font-family: 'Dancing Script', cursive; 
-      font-size: 3.5rem; 
-    } */
-
     .gift-statement {
         font-size: 1.2rem;
         line-height: 1.6;
@@ -306,11 +312,6 @@
             font-size: 2.5rem; 
         }
         
-        /* Removed mobile script font style for h2 */
-        /* #entourage h2 {
-          font-size: 2.5rem;
-        } */
-        
         section h2 {
           font-size: 1.8rem;
         }
@@ -320,14 +321,13 @@
             font-size: 1rem;
         }
 
-        audio {
-            position: fixed; 
-            width: 100px; 
-            bottom: 5px;
-            right: 5px;
-            left: auto;
-            opacity: 1;
-            z-index: 20000; 
+        /* Mobile music button size */
+        #music-toggle {
+            width: 35px;
+            height: 35px;
+            font-size: 1rem;
+            bottom: 10px; 
+            right: 10px;
         }
 
         .tagline {
@@ -365,10 +365,12 @@
 </head>
 <body>
   
-  <audio id="background-music" loop controls preload="auto">
+  <audio id="background-music" loop autoplay muted preload="auto">
     <source src="song.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
+
+  <button id="music-toggle">🔇</button>
 
   <header>
     <h1 class="visually-hidden">Aaron & Jade Wedding</h1>
@@ -464,7 +466,7 @@
                 <img src="Entourage List 2.png" alt="Our Entourage List - Part 2: Principal Sponsors, Secondary Sponsors, Flower Girls, and Ring Bearer">
             </div>
         </div>
-        </div>
+    </div>
   </section>
 
   <section id="giftguide">
@@ -515,6 +517,20 @@
 
     const interval = setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // NEW Music Toggle Script
+    const music = document.getElementById('background-music');
+    const toggleButton = document.getElementById('music-toggle');
+
+    toggleButton.addEventListener('click', () => {
+        if (music.muted) {
+            music.muted = false;
+            toggleButton.textContent = '🔊';
+        } else {
+            music.muted = true;
+            toggleButton.textContent = '🔇';
+        }
+    });
 
   </script>
 
