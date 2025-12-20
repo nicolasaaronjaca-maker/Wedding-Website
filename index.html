@@ -65,38 +65,12 @@
       box-sizing: border-box; 
     }
     
-    /* Monogram Image (MAXIMIZED DESKTOP SIZE) */
+    /* Monogram Image */
     .monogram {
         height: 900px; 
         width: auto;
         margin: 20px 0 10px 0; 
         transition: height 0.3s; 
-    }
-
-    /* NEW MUSIC TOGGLE BUTTON STYLING */
-    #music-toggle {
-        position: fixed; 
-        bottom: 15px; 
-        right: 15px;
-        background: rgba(255, 255, 255, 0.2); 
-        color: white;
-        border: 2px solid rgba(255, 255, 255, 0.4);
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        z-index: 20000;
-        transition: background 0.3s, border-color 0.3s;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-    #music-toggle:hover {
-        background: rgba(255, 255, 255, 0.4); 
-    }
-
-    /* Hide the default audio element since we use a custom button */
-    audio {
-        display: none;
     }
 
     nav {
@@ -113,7 +87,7 @@
       color: #ffddaa; 
     }
     
-    /* DEFAULT H2 STYLE (for all other sections) */
+    /* DEFAULT H2 STYLE */
     section h2 {
         font-family: 'Georgia', serif; 
         font-size: 2rem;
@@ -141,7 +115,7 @@
       margin-bottom: 20px; 
     }
     
-    /* Content Wrapper: Adds dark overlay for text readability */
+    /* Content Wrapper */
     .content-wrapper {
         background: rgba(0, 0, 0, 0.6); 
         padding: 40px 20px; 
@@ -224,7 +198,7 @@
       background: #e6c799;
     }
     
-    /* Single Content Box Styling (for video and entourage) */
+    /* Single Content Box Styling */
     .single-box-container {
         display: flex;
         flex-direction: column; 
@@ -232,7 +206,7 @@
         gap: 20px;
     }
 
-    /* Specific Styling for Entourage Section - Side by side on desktop */
+    /* Specific Styling for Entourage Section */
     #entourage .single-box-container {
         flex-direction: row; 
         flex-wrap: wrap; 
@@ -253,7 +227,6 @@
       max-width: 500px; 
     }
 
-    .single-content-box video, 
     .single-content-box img {
       width: 100%;
       height: auto;
@@ -266,9 +239,9 @@
       color: #ffddaa;
       font-style: italic;
     }
-    /* Adjusted caption margin for placement under the header */
+    /* Adjusted caption margin */
     #entourage .video-caption, 
-    #savethedate .video-caption { /* ADDED #savethedate here */
+    #savethedate .video-caption { 
         margin-top: 5px;
         margin-bottom: 30px;
     }
@@ -295,6 +268,71 @@
         display: none; 
     }
 
+    /* --- SLIDESHOW STYLES --- */
+    .slideshow-container {
+        position: relative;
+        max-width: 800px;
+        width: 100%;
+        margin: auto;
+        border: 5px solid #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: black;
+    }
+
+    .mySlides {
+        display: none;
+    }
+
+    .mySlides img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        background-color: rgba(0,0,0,0.3);
+        user-select: none;
+        border: none;
+        z-index: 2; 
+    }
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .prev {
+        left: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+    }
+    
+    .audio-controls {
+        margin-top: 15px;
+    }
+    /* Make the audio player blend in a bit */
+    audio {
+        height: 30px;
+        opacity: 0.7;
+    }
+    audio:hover {
+        opacity: 1;
+    }
+
 
     /* Media query for phone (max-width: 768px) */
     @media (max-width: 768px) {
@@ -304,7 +342,6 @@
             padding: 20px 15px 30px; 
         }
 
-        /* Monogram Image (MAXIMIZED MOBILE SIZE) */
         .monogram {
             height: 400px; 
             margin-top: 10px; 
@@ -318,18 +355,8 @@
           font-size: 1.8rem;
         }
 
-        /* Mobile specific Gift Guide statement style */
         .gift-statement {
             font-size: 1rem;
-        }
-
-        /* Mobile music button size */
-        #music-toggle {
-            width: 35px;
-            height: 35px;
-            font-size: 1rem;
-            bottom: 10px; 
-            right: 10px;
         }
 
         .tagline {
@@ -347,7 +374,6 @@
             flex: 0 0 100%; 
         }
         
-        /* Nav fixes for horizontal scrolling */
         nav {
             margin: 10px 0 0; 
             white-space: nowrap; 
@@ -366,13 +392,6 @@
   </style>
 </head>
 <body>
-  
-  <audio id="background-music" loop autoplay muted preload="auto">
-    <source src="song.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
-
-  <button id="music-toggle">🔇</button>
 
   <header>
     <h1 class="visually-hidden">Aaron & Jade Wedding</h1>
@@ -442,15 +461,61 @@
         
         <p class="video-caption" style="margin-top: 5px; margin-bottom: 30px;">A glimpse of our journey — we can’t wait to celebrate with you!</p>
 
-        <div class="single-box-container">
-            <div class="single-content-box">
-                <video controls muted loop>
-                    <source src="savethedate.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+        <div class="slideshow-container">
+
+            <div class="mySlides">
+                <img src="1.jpg" style="width:100%">
             </div>
+
+            <div class="mySlides">
+                <img src="2.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <img src="3.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <img src="4.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <img src="5.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <img src="6.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <img src="7.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <img src="8.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <img src="9.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <img src="10.jpg" style="width:100%">
+            </div>
+
+            <button class="prev" onclick="plusSlides(-1)">❮</button>
+            <button class="next" onclick="plusSlides(1)">❯</button>
+
         </div>
+        
+        <div class="audio-controls">
+            <audio id="bgMusic" controls loop>
+                <source src="Song.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
         </div>
+
+    </div>
   </section>
 
   <section id="entourage">
@@ -498,7 +563,6 @@
   <script>
     // Countdown Script
     const countdown = document.getElementById("countdown");
-    // Date is set to April 16, 2026
     const weddingDate = new Date("April 16, 2026 00:00:00").getTime();
 
     function updateCountdown() {
@@ -522,26 +586,40 @@
     const interval = setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Music Toggle Script
-    const music = document.getElementById('background-music');
-    const toggleButton = document.getElementById('music-toggle');
+    // --- SLIDESHOW SCRIPT ---
+    let slideIndex = 1;
+    showSlides(slideIndex);
 
-    toggleButton.addEventListener('click', () => {
-        if (music.muted) {
-            music.muted = false;
-            toggleButton.textContent = '🔊';
-        } else {
-            music.muted = true;
-            toggleButton.textContent = '🔇';
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+        tryPlayMusic(); // Tries to play music when arrow is clicked
+    }
+
+    // Main function to display slides
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
         }
-    });
+        
+        slides[slideIndex-1].style.display = "block";  
+    }
 
-    // FIX: Explicitly attempt to play the muted audio file on page load
-    document.addEventListener('DOMContentLoaded', (event) => {
-        music.play().catch(error => {
-            console.log("Audio playback failed (usually due to policy restriction). User must click to unmute.");
-        });
-    });
+    // Helper to try playing music when user interacts
+    function tryPlayMusic() {
+        var music = document.getElementById("bgMusic");
+        if (music && music.paused) {
+            music.play().catch(error => {
+                console.log("Browser prevented autoplay until interaction.");
+            });
+        }
+    }
 
   </script>
 
