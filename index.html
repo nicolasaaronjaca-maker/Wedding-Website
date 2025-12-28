@@ -97,7 +97,6 @@
         margin-top: 0;
     }
     
-    /* Wedding Date in Event Details */
     .event-date {
         font-family: 'Dancing Script', cursive;
         font-size: 2.5rem;
@@ -139,7 +138,6 @@
       border-radius: 2px;
     }
 
-    /* Rest of Styles... */
     .location-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
     .location-card { background: rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; width: 300px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
     .location-card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
@@ -190,12 +188,12 @@
     
     <nav>
       <a href="#event">Countdown</a>
-      <a href="#rsvp">RSVP</a>
       <a href="#location">Location</a>
-      <a href="#savethedate">Sneak Peek</a>
       <a href="#entourage">Entourage</a>
+      <a href="#savethedate">Sneak Peek</a>
       <a href="#guidelines">Guidelines</a>
       <a href="#moodboard">Mood Board</a>
+      <a href="#rsvp">RSVP</a>
     </nav>
   </header>
 
@@ -205,21 +203,6 @@
         <div class="divider"></div>
         <div class="event-date">April 16, 2026</div>
         <div id="countdown"></div>
-    </div>
-  </section>
-
-  <section id="rsvp">
-    <div class="content-wrapper">
-        <h2>RSVP</h2>
-        <div class="divider"></div>
-        <p class="rsvp-message">
-          We would be honored by your presence on our wedding day.<br>
-          Kindly confirm your attendance by clicking the button below:
-        </p>
-        <p class="rsvp-instruction">
-          ✦ Please make sure to enter your **Full Name** in the format *FirstName LastName (FN LN)* when submitting your RSVP.
-        </p>
-        <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
     </div>
   </section>
 
@@ -244,6 +227,22 @@
     </div>
   </section>
 
+  <section id="entourage">
+    <div class="content-wrapper">
+        <h2>Our Entourage</h2>
+        <div class="divider"></div>
+        <p class="video-caption">Meet our cherished entourage — the people who’ll stand beside us.</p>
+        <div class="single-box-container">
+            <div class="single-content-box">
+                <img src="Entourage List 1.png" alt="Our Entourage List - Part 1">
+            </div>
+            <div class="single-content-box">
+                <img src="Entourage List 2.png" alt="Our Entourage List - Part 2">
+            </div>
+        </div>
+    </div>
+  </section>
+
   <section id="savethedate">
     <div class="content-wrapper">
         <h2>Sneak Peek</h2>
@@ -252,8 +251,6 @@
         <div class="slideshow-container">
             <div class="mySlides"><img src="1.jpg"></div>
             <div class="mySlides"><img src="2.jpg"></div>
-            <div class="mySlides"><img src="3.jpg"></div>
-            <div class="mySlides"><img src="32.jpg"></div>
             <button class="prev" onclick="plusSlides(-1)">❮</button>
             <button class="next" onclick="plusSlides(1)">❯</button>
         </div>
@@ -265,26 +262,31 @@
     </div>
   </section>
 
-  <section id="entourage">
-    <div class="content-wrapper">
-        <h2>Our Entourage</h2>
-        <div class="divider"></div>
-        <div class="single-box-container">
-            <div class="single-content-box"><img src="Entourage List 1.png" alt="Entourage 1"></div>
-            <div class="single-content-box"><img src="Entourage List 2.png" alt="Entourage 2"></div>
-        </div>
-    </div>
-  </section>
-
   <section id="guidelines">
     <div class="content-wrapper">
         <h2>Wedding Guidelines</h2>
         <div class="divider"></div>
+        
         <div class="guideline-item">
             <h3>Little Ones</h3>
-            <p class="guideline-text">As much as we love your little ones, we have decided to keep our special day an adults-only occasion.</p>
+            <p class="guideline-text">As much as we love your little ones, we have decided to keep our special day an adults-only occasion, with the exception of our immediate families.</p>
         </div>
+
+        <div class="guideline-item">
+            <h3>Plus One</h3>
+            <p class="guideline-text">We kindly request that only the guests listed on your invitation attend. We are unable to accommodate additional plus ones.</p>
         </div>
+
+        <div class="guideline-item">
+            <h3>Parking</h3>
+            <p class="guideline-text">Ample parking is available at both the church and the reception venue.</p>
+        </div>
+
+        <div class="guideline-item">
+            <h3>Gift Guide</h3>
+            <p class="guideline-text">Your presence is the only gift we truly need. However, if you wish to honor us with a gift, a monetary contribution would be greatly appreciated.</p>
+        </div>
+    </div>
   </section>
 
   <section id="moodboard">
@@ -292,8 +294,22 @@
         <h2>Mood Board & Color Motifs</h2>
         <div class="divider"></div>
         <div class="moodboard-item">
-          <img src="Mood Board Finaal.png" alt="Wedding Mood Board"> 
+          <img src="Mood Board Finaal.png" alt="Wedding Mood Board showing rustic and magenta tones"> 
         </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="content-wrapper">
+        <h2>RSVP</h2>
+        <div class="divider"></div>
+        <p class="rsvp-message">
+          Kindly confirm your attendance by clicking the button below:
+        </p>
+        <p class="rsvp-instruction">
+          ✦ Please make sure to enter your **Full Name** (FN LN) when submitting.
+        </p>
+        <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
     </div>
   </section>
 
