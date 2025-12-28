@@ -67,17 +67,26 @@
     .monogram {
         height: 900px; 
         width: auto;
-        margin: 20px 0 10px 0; 
+        margin: 20px 0 0 0; 
         transition: height 0.3s; 
     }
 
-    /* Updated Nav for Auto-Adjustment */
+    /* Wedding Date Styling */
+    .wedding-date {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3rem;
+        color: #ffddaa;
+        margin: 5px 0 20px 0;
+        letter-spacing: 2px;
+    }
+
+    /* Nav for Auto-Adjustment */
     nav {
       margin: 20px 0 0; 
       display: flex;
-      flex-wrap: wrap; /* Allows items to jump to next line */
+      flex-wrap: wrap; 
       justify-content: center;
-      gap: 10px 20px; /* Vertical and horizontal spacing */
+      gap: 10px 20px; 
       max-width: 90%;
     }
     nav a {
@@ -85,7 +94,7 @@
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
-      white-space: nowrap; /* Prevents text like "Mood Board" from splitting */
+      white-space: nowrap; 
     }
     nav a:hover {
       color: #ffddaa; 
@@ -292,22 +301,21 @@
     @media (max-width: 768px) {
         header { min-height: 90vh; padding: 20px 15px 30px; }
         .monogram { height: 400px; }
+        .wedding-date { font-size: 1.8rem; margin: 2px 0 15px 0; }
         #countdown { font-size: 2.5rem; }
         section h2 { font-size: 1.8rem; }
         .guideline-text { font-size: 1rem; }
         .content-wrapper { padding: 30px 15px; }
         
-        /* Mobile Specific Nav Adjustment */
         nav { 
-            gap: 12px 15px; 
+            gap: 12px 10px; 
             margin-top: 15px;
         }
         nav a { 
-            font-size: 0.85rem; 
-            background: rgba(255, 255, 255, 0.1); /* Subtle button feel */
-            padding: 8px 12px;
+            font-size: 0.8rem; 
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 10px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 221, 170, 0.3);
         }
     }
   </style>
@@ -317,6 +325,8 @@
   <header>
     <h1 class="visually-hidden">Aaron & Jade Wedding</h1>
     <img src="Monogram.png" alt="Aaron & Jade Monogram" class="monogram">
+    
+    <div class="wedding-date">April 16, 2026</div>
     
     <p class="tagline">Under the twilight sky, we say "I Do"<br>Amid the whispers of the woods, we promise forever.</p>
     
