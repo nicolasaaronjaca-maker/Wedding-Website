@@ -67,17 +67,8 @@
     .monogram {
         height: 900px; 
         width: auto;
-        margin: 20px 0 0 0; 
+        margin: 20px 0 10px 0; 
         transition: height 0.3s; 
-    }
-
-    /* Wedding Date Styling */
-    .wedding-date {
-        font-family: 'Dancing Script', cursive;
-        font-size: 3rem;
-        color: #ffddaa;
-        margin: 5px 0 20px 0;
-        letter-spacing: 2px;
     }
 
     /* Nav for Auto-Adjustment */
@@ -106,26 +97,12 @@
         margin-top: 0;
     }
     
-    .guideline-item {
-        margin-bottom: 35px;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .guideline-item h3 {
+    /* Wedding Date in Event Details */
+    .event-date {
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.5rem;
         color: #f8e6d4;
-        font-size: 1.4rem;
         margin-bottom: 10px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .guideline-text {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #ffddaa;
-        margin: 0 auto;
     }
 
     .tagline {
@@ -151,7 +128,7 @@
       font-size: 4rem; 
       font-weight: bold;
       margin-bottom: 20px;
-      margin-top: 20px;
+      margin-top: 10px;
       color: #ffddaa;
     }
     .divider {
@@ -161,162 +138,45 @@
       margin: 15px auto 25px auto;
       border-radius: 2px;
     }
-    .location-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-    .location-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 20px;
-      width: 300px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-    .location-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .guide-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #ffddaa;
-      color: black;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .guide-btn:hover {
-      background: #e6c799;
-    }
-    .rsvp-message {
-      font-size: 1.4rem;
-      font-style: italic;
-      font-family: 'Georgia', serif;
-      color: #f8e6d4;
-      margin-bottom: 15px;
-    }
-    .rsvp-instruction {
-      font-size: 1rem;
-      color: #ffddaa;
-      margin-bottom: 25px;
-    }
-    .rsvp-btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background: #ffddaa;
-      color: black;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .rsvp-btn:hover {
-      background: #e6c799;
-    }
-    
-    .single-box-container {
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        gap: 20px;
-    }
 
-    #entourage .single-box-container {
-        flex-direction: row; 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 20px; 
-    }
-
-    #entourage .single-content-box {
-      width: 100%;
-      max-width: 48%; 
-      flex: 1 1 auto; 
-    }
-    
-    .single-content-box {
-      width: 100%;
-      max-width: 500px; 
-    }
-
-    .single-content-box img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-    .video-caption {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      color: #ffddaa;
-      font-style: italic;
-    }
-
-    /* SLIDESHOW STYLES */
-    .slideshow-container {
-        position: relative;
-        max-width: 800px;
-        width: 100%;
-        margin: auto;
-        border: 5px solid #fff;
-        border-radius: 10px;
-        overflow: hidden;
-        background-color: black;
-    }
-
+    /* Rest of Styles... */
+    .location-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    .location-card { background: rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; width: 300px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+    .location-card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
+    .guide-btn { display: inline-block; padding: 10px 20px; background: #ffddaa; color: black; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
+    .guide-btn:hover { background: #e6c799; }
+    .rsvp-message { font-size: 1.4rem; font-style: italic; font-family: 'Georgia', serif; color: #f8e6d4; margin-bottom: 15px; }
+    .rsvp-instruction { font-size: 1rem; color: #ffddaa; margin-bottom: 25px; }
+    .rsvp-btn { display: inline-block; padding: 12px 25px; background: #ffddaa; color: black; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
+    .rsvp-btn:hover { background: #e6c799; }
+    .single-box-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    #entourage .single-box-container { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    #entourage .single-content-box { width: 100%; max-width: 48%; flex: 1 1 auto; }
+    .single-content-box { width: 100%; max-width: 500px; }
+    .single-content-box img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+    .video-caption { margin-top: 15px; font-size: 1.1rem; color: #ffddaa; font-style: italic; }
+    .slideshow-container { position: relative; max-width: 800px; width: 100%; margin: auto; border: 5px solid #fff; border-radius: 10px; overflow: hidden; background-color: black; }
     .mySlides { display: none; }
     .mySlides img { width: 100%; display: block; }
-
-    .prev, .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        padding: 16px;
-        margin-top: -22px;
-        color: white;
-        font-weight: bold;
-        background-color: rgba(0,0,0,0.3);
-        border: none;
-        z-index: 2; 
-    }
-    .next { right: 0; }
-    .prev { left: 0; }
-
+    .prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 16px; margin-top: -22px; color: white; font-weight: bold; background-color: rgba(0,0,0,0.3); border: none; z-index: 2; }
+    .next { right: 0; } .prev { left: 0; }
     .audio-controls { margin-top: 15px; }
     audio { height: 30px; opacity: 0.7; }
-
-    .moodboard-item img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
+    .moodboard-item img { width: 100%; max-width: 100%; height: auto; border-radius: 8px; }
+    .guideline-item { margin-bottom: 35px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .guideline-item h3 { color: #f8e6d4; font-size: 1.4rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .guideline-text { font-size: 1.1rem; line-height: 1.6; color: #ffddaa; margin: 0 auto; }
 
     /* Media query for phone */
     @media (max-width: 768px) {
         header { min-height: 90vh; padding: 20px 15px 30px; }
         .monogram { height: 400px; }
-        .wedding-date { font-size: 1.8rem; margin: 2px 0 15px 0; }
-        #countdown { font-size: 2.5rem; }
+        .event-date { font-size: 1.8rem; }
+        #countdown { font-size: 2.2rem; }
         section h2 { font-size: 1.8rem; }
-        .guideline-text { font-size: 1rem; }
         .content-wrapper { padding: 30px 15px; }
-        
-        nav { 
-            gap: 12px 10px; 
-            margin-top: 15px;
-        }
-        nav a { 
-            font-size: 0.8rem; 
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 10px;
-            border-radius: 20px;
-        }
+        nav { gap: 12px 10px; margin-top: 15px; }
+        nav a { font-size: 0.8rem; background: rgba(255, 255, 255, 0.1); padding: 8px 10px; border-radius: 20px; }
     }
   </style>
 </head>
@@ -326,12 +186,10 @@
     <h1 class="visually-hidden">Aaron & Jade Wedding</h1>
     <img src="Monogram.png" alt="Aaron & Jade Monogram" class="monogram">
     
-    <div class="wedding-date">April 16, 2026</div>
-    
     <p class="tagline">Under the twilight sky, we say "I Do"<br>Amid the whispers of the woods, we promise forever.</p>
     
     <nav>
-      <a href="#event">Event</a>
+      <a href="#event">Countdown</a>
       <a href="#rsvp">RSVP</a>
       <a href="#location">Location</a>
       <a href="#savethedate">Sneak Peek</a>
@@ -343,8 +201,9 @@
 
   <section id="event">
     <div class="content-wrapper">
-        <h2>Event Details</h2>
+        <h2>Countdown</h2>
         <div class="divider"></div>
+        <div class="event-date">April 16, 2026</div>
         <div id="countdown"></div>
     </div>
   </section>
@@ -394,34 +253,6 @@
             <div class="mySlides"><img src="1.jpg"></div>
             <div class="mySlides"><img src="2.jpg"></div>
             <div class="mySlides"><img src="3.jpg"></div>
-            <div class="mySlides"><img src="4.jpg"></div>
-            <div class="mySlides"><img src="5.jpg"></div>
-            <div class="mySlides"><img src="6.jpg"></div>
-            <div class="mySlides"><img src="7.jpg"></div>
-            <div class="mySlides"><img src="8.jpg"></div>
-            <div class="mySlides"><img src="9.jpg"></div>
-            <div class="mySlides"><img src="10.jpg"></div>
-            <div class="mySlides"><img src="11.jpg"></div>
-            <div class="mySlides"><img src="12.jpg"></div>
-            <div class="mySlides"><img src="13.jpg"></div>
-            <div class="mySlides"><img src="14.jpg"></div>
-            <div class="mySlides"><img src="15.jpg"></div>
-            <div class="mySlides"><img src="16.jpg"></div>
-            <div class="mySlides"><img src="17.jpg"></div>
-            <div class="mySlides"><img src="18.jpg"></div>
-            <div class="mySlides"><img src="19.jpg"></div>
-            <div class="mySlides"><img src="20.jpg"></div>
-            <div class="mySlides"><img src="21.jpg"></div>
-            <div class="mySlides"><img src="22.jpg"></div>
-            <div class="mySlides"><img src="23.jpg"></div>
-            <div class="mySlides"><img src="24.jpg"></div>
-            <div class="mySlides"><img src="25.jpg"></div>
-            <div class="mySlides"><img src="26.jpg"></div>
-            <div class="mySlides"><img src="27.jpg"></div>
-            <div class="mySlides"><img src="28.jpg"></div>
-            <div class="mySlides"><img src="29.jpg"></div>
-            <div class="mySlides"><img src="30.jpg"></div>
-            <div class="mySlides"><img src="31.jpg"></div>
             <div class="mySlides"><img src="32.jpg"></div>
             <button class="prev" onclick="plusSlides(-1)">❮</button>
             <button class="next" onclick="plusSlides(1)">❯</button>
@@ -429,7 +260,6 @@
         <div class="audio-controls">
             <audio id="bgMusic" controls loop>
                 <source src="Song.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
             </audio>
         </div>
     </div>
@@ -439,14 +269,9 @@
     <div class="content-wrapper">
         <h2>Our Entourage</h2>
         <div class="divider"></div>
-        <p class="video-caption">Meet our cherished entourage — the people who’ll stand beside us.</p>
         <div class="single-box-container">
-            <div class="single-content-box">
-                <img src="Entourage List 1.png" alt="Our Entourage List - Part 1">
-            </div>
-            <div class="single-content-box">
-                <img src="Entourage List 2.png" alt="Our Entourage List - Part 2">
-            </div>
+            <div class="single-content-box"><img src="Entourage List 1.png" alt="Entourage 1"></div>
+            <div class="single-content-box"><img src="Entourage List 2.png" alt="Entourage 2"></div>
         </div>
     </div>
   </section>
@@ -455,27 +280,11 @@
     <div class="content-wrapper">
         <h2>Wedding Guidelines</h2>
         <div class="divider"></div>
-        
         <div class="guideline-item">
             <h3>Little Ones</h3>
-            <p class="guideline-text">As much as we love your little ones, we have decided to keep our special day an adults-only occasion, with the exception of our immediate families. We hope this advance notice allows you to join us for a night of relaxation and celebration!</p>
+            <p class="guideline-text">As much as we love your little ones, we have decided to keep our special day an adults-only occasion.</p>
         </div>
-
-        <div class="guideline-item">
-            <h3>Plus One</h3>
-            <p class="guideline-text">We would love to accommodate everyone; however, we kindly request that only the guests listed on your invitation attend. We are unable to accommodate additional plus ones and appreciate your understanding in helping us keep our celebration intimate.</p>
         </div>
-
-        <div class="guideline-item">
-            <h3>Parking</h3>
-            <p class="guideline-text">For your convenience, ample parking is available for all guests at both the church and the reception venue.</p>
-        </div>
-
-        <div class="guideline-item">
-            <h3>Gift Guide</h3>
-            <p class="guideline-text">Your presence is the only gift we truly need. However, if you wish to honor us with a gift, a monetary contribution would be greatly appreciated as we save for our future together and plan our dream home/honeymoon.</p>
-        </div>
-    </div>
   </section>
 
   <section id="moodboard">
@@ -483,7 +292,7 @@
         <h2>Mood Board & Color Motifs</h2>
         <div class="divider"></div>
         <div class="moodboard-item">
-          <img src="Mood Board Finaal.png" alt="Wedding Mood Board showing rustic and magenta tones"> 
+          <img src="Mood Board Finaal.png" alt="Wedding Mood Board"> 
         </div>
     </div>
   </section>
@@ -511,25 +320,18 @@
 
     let slideIndex = 1;
     showSlides(slideIndex);
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-        tryPlayMusic();
-    }
+    function plusSlides(n) { showSlides(slideIndex += n); tryPlayMusic(); }
     function showSlides(n) {
         let i;
         let slides = document.getElementsByClassName("mySlides");
         if (n > slides.length) {slideIndex = 1}    
         if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
+        for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
         slides[slideIndex-1].style.display = "block";  
     }
     function tryPlayMusic() {
         var music = document.getElementById("bgMusic");
-        if (music && music.paused) {
-            music.play().catch(error => {});
-        }
+        if (music && music.paused) { music.play().catch(error => {}); }
     }
   </script>
 
