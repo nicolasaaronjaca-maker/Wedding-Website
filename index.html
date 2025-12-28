@@ -276,6 +276,14 @@
     .audio-controls { margin-top: 15px; }
     audio { height: 30px; opacity: 0.7; }
 
+    /* MOOD BOARD ADJUSTMENTS */
+    .moodboard-item img {
+      width: 100%;
+      max-width: 100%; /* Keeps it inside the content-wrapper */
+      height: auto;
+      border-radius: 8px;
+    }
+
     /* Media query for phone */
     @media (max-width: 768px) {
         header { min-height: 90vh; padding: 20px 15px 30px; }
@@ -449,10 +457,12 @@
     <div class="content-wrapper">
         <h2>Mood Board & Color Motifs</h2>
         <div class="divider"></div>
-        <div class="moodboard-container">
-          <div class="moodboard-item">
-            <img src="Mood Board Finaal.png" alt="Wedding Mood Board"> 
-          </div>
+        <p class="guideline-text" style="margin-bottom: 20px;">
+          To help keep our celebration cohesive, we invite you to draw inspiration from our color palette: 
+          earthy neutrals, dusty rose, and deep magenta.
+        </p>
+        <div class="moodboard-item">
+          <img src="Mood Board Finaal.png" alt="Wedding Mood Board showing rustic and magenta tones"> 
         </div>
     </div>
   </section>
@@ -504,4 +514,3 @@
 
 </body>
 </html>
-
