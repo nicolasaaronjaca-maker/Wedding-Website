@@ -71,7 +71,15 @@
         transition: height 0.3s; 
     }
 
-    /* Nav for Auto-Adjustment */
+    /* Resized tagline */
+    .tagline {
+      font-size: 1.1rem; /* Resized lower */
+      font-style: italic;
+      margin-bottom: 20px; 
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
     nav {
       margin: 20px 0 0; 
       display: flex;
@@ -102,12 +110,6 @@
         font-size: 2.5rem;
         color: #f8e6d4;
         margin-bottom: 10px;
-    }
-
-    .tagline {
-      font-size: 1.5rem;
-      font-style: italic;
-      margin-bottom: 20px; 
     }
     
     section {
@@ -143,15 +145,28 @@
     .location-card img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
     .guide-btn { display: inline-block; padding: 10px 20px; background: #ffddaa; color: black; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
     .guide-btn:hover { background: #e6c799; }
+    
     .rsvp-message { font-size: 1.4rem; font-style: italic; font-family: 'Georgia', serif; color: #f8e6d4; margin-bottom: 15px; }
     .rsvp-instruction { font-size: 1rem; color: #ffddaa; margin-bottom: 25px; }
     .rsvp-btn { display: inline-block; padding: 12px 25px; background: #ffddaa; color: black; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
     .rsvp-btn:hover { background: #e6c799; }
+
+    /* Entourage auto-adjustment */
     .single-box-container { display: flex; flex-direction: column; align-items: center; gap: 20px; }
     #entourage .single-box-container { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 20px; }
-    #entourage .single-content-box { width: 100%; max-width: 48%; flex: 1 1 auto; }
-    .single-content-box { width: 100%; max-width: 500px; }
-    .single-content-box img { width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+    #entourage .single-content-box { 
+      width: 100%; 
+      max-width: 450px; /* Reduced for better fit on tablets */
+      flex: 1 1 auto; 
+    }
+    .single-content-box img { 
+      width: 100%; 
+      height: auto; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5); 
+      display: block;
+    }
+
     .video-caption { margin-top: 15px; font-size: 1.1rem; color: #ffddaa; font-style: italic; }
     .slideshow-container { position: relative; max-width: 800px; width: 100%; margin: auto; border: 5px solid #fff; border-radius: 10px; overflow: hidden; background-color: black; }
     .mySlides { display: none; }
@@ -165,16 +180,36 @@
     .guideline-item h3 { color: #f8e6d4; font-size: 1.4rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
     .guideline-text { font-size: 1.1rem; line-height: 1.6; color: #ffddaa; margin: 0 auto; }
 
+    /* Contact details styling */
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .contact-info p {
+      margin: 5px 0;
+      color: #f8e6d4;
+    }
+    .contact-info strong {
+      color: #ffddaa;
+    }
+
     /* Media query for phone */
     @media (max-width: 768px) {
         header { min-height: 90vh; padding: 20px 15px 30px; }
         .monogram { height: 400px; }
+        .tagline { font-size: 0.95rem; padding: 0 10px; }
         .event-date { font-size: 1.8rem; }
         #countdown { font-size: 2.2rem; }
         section h2 { font-size: 1.8rem; }
         .content-wrapper { padding: 30px 15px; }
         nav { gap: 12px 10px; margin-top: 15px; }
         nav a { font-size: 0.8rem; background: rgba(255, 255, 255, 0.1); padding: 8px 10px; border-radius: 20px; }
+        #entourage .single-content-box { 
+          max-width: 100%; /* Full width on phones */
+          flex: 0 0 100%;
+        }
     }
   </style>
 </head>
@@ -310,6 +345,21 @@
           ✦ Please make sure to enter your **Full Name** (FN LN) when submitting.
         </p>
         <a class="rsvp-btn" href="https://theknot.com/aaronandjadeweddingweekend" target="_blank">Confirm Your Attendance</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="content-wrapper">
+        <h2>Contact Details</h2>
+        <div class="divider"></div>
+        <p class="video-caption">Have questions? Feel free to reach out to us or our coordinator.</p>
+        <div class="contact-container">
+          <div class="contact-info">
+            <p><strong>Wedding Coordinator:</strong> [Name/Company]</p>
+            <p><strong>Phone:</strong> [Phone Number]</p>
+            <p><strong>Email:</strong> [Email Address]</p>
+          </div>
+        </div>
     </div>
   </section>
 
