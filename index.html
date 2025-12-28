@@ -71,15 +71,21 @@
         transition: height 0.3s; 
     }
 
+    /* Updated Nav for Auto-Adjustment */
     nav {
       margin: 20px 0 0; 
+      display: flex;
+      flex-wrap: wrap; /* Allows items to jump to next line */
+      justify-content: center;
+      gap: 10px 20px; /* Vertical and horizontal spacing */
+      max-width: 90%;
     }
     nav a {
       color: white;
-      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s; 
+      transition: color 0.3s;
+      white-space: nowrap; /* Prevents text like "Mood Board" from splitting */
     }
     nav a:hover {
       color: #ffddaa; 
@@ -91,7 +97,6 @@
         margin-top: 0;
     }
     
-    /* Consolidated Guideline Styling */
     .guideline-item {
         margin-bottom: 35px;
         max-width: 800px;
@@ -276,10 +281,9 @@
     .audio-controls { margin-top: 15px; }
     audio { height: 30px; opacity: 0.7; }
 
-    /* MOOD BOARD ADJUSTMENTS */
     .moodboard-item img {
       width: 100%;
-      max-width: 100%; /* Keeps it inside the content-wrapper */
+      max-width: 100%;
       height: auto;
       border-radius: 8px;
     }
@@ -292,8 +296,19 @@
         section h2 { font-size: 1.8rem; }
         .guideline-text { font-size: 1rem; }
         .content-wrapper { padding: 30px 15px; }
-        nav { margin: 10px 0 0; white-space: nowrap; overflow-x: auto; padding-bottom: 5px; }
-        nav a { font-size: 0.7rem; margin: 0 3px; display: inline-block; }
+        
+        /* Mobile Specific Nav Adjustment */
+        nav { 
+            gap: 12px 15px; 
+            margin-top: 15px;
+        }
+        nav a { 
+            font-size: 0.85rem; 
+            background: rgba(255, 255, 255, 0.1); /* Subtle button feel */
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 221, 170, 0.3);
+        }
     }
   </style>
 </head>
@@ -309,7 +324,7 @@
       <a href="#event">Event</a>
       <a href="#rsvp">RSVP</a>
       <a href="#location">Location</a>
-      <a href="#savethedate">Gallery</a>
+      <a href="#savethedate">Sneak Peek</a>
       <a href="#entourage">Entourage</a>
       <a href="#guidelines">Guidelines</a>
       <a href="#moodboard">Mood Board</a>
@@ -510,4 +525,3 @@
 
 </body>
 </html>
-
