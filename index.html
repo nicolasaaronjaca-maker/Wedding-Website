@@ -237,7 +237,7 @@
     <div class="content-wrapper">
         <h2>Countdown</h2>
         <div class="divider"></div>
-        <div class="event-date">April 16, 2026</div>
+        <div class="event-date">April 16, 2026, 3:00 PM</div>
         <div id="countdown"></div>
     </div>
   </section>
@@ -417,7 +417,7 @@
 
   <script>
     const countdown = document.getElementById("countdown");
-    const weddingDate = new Date("April 16, 2026 00:00:00").getTime();
+    const weddingDate = new Date("April 16, 2026 15:00:00").getTime();
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = weddingDate - now;
@@ -449,6 +449,7 @@
 
 </body>
 </html>
+
 
 
 
